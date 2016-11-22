@@ -1,4 +1,24 @@
-\ProvidesPackage{awesomebox}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{awesomebox}[2016/11/22 v0.1]
+
+\RequirePackage{ifxetex,ifluatex}
+\newif\ifawesomebox@notxetex\awesomebox@notxetextrue
+\ifxetex
+  \awesomebox@notxetexfalse
+\else
+  \ifluatex
+    \awesomebox@notxetexfalse
+  \fi
+\fi
+
+\ifawesomebox@notxetex
+\PackageError{awesomebox}{%
+  You are trying to use awesomebox\MessageBreak
+  with something else than xelatex or luatex
+}{%
+  Please abort now with <ctrl+d>
+}
+\fi
 
 % This package heavily uses the work of Honza Ustohal, known under the
 % name FontAwesome bindings for (Xe)LaTeX:
