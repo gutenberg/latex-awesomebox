@@ -12,7 +12,6 @@ XeTeX. Yes, this package require you to use XeLaTeX too.
 We use the previous work of Honza Ustohal on [[https://gist.github.com/sway/3101743][fontawesome.sty]] to build
 this package. However, we made two important modifications:
 
-
  1. we rename the internal commands of ~fontawesome.sty~ from ~\fa~ to
     ~\abIcon~ and the ~\FA~ font switch to ~\ABFamily~ to avoid
     collision if you want to use both of them;
