@@ -23,6 +23,8 @@ For more details, please refer to the [[https://github.com/milouse/latex-awesome
 * Requirements
 
  - a working XeLaTeX environment
+ - the ~ifxetex~, ~ifluatex~, ~xltxtra~, ~xcolor~ and ~tabularx~ LaTeX
+   packages
  - [[http://fontawesome.io/icons/][FontAwesome]]
 
 * Installation
