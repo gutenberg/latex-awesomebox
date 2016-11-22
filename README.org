@@ -19,4 +19,4 @@ this package. However, we made two important modifications:
  2. we remove most of the provided icons to only kept the one we really
     use in this package.
 
-For more details, please refer to the awesomebox.pdf document.
+For more details, please refer to the [[https://github.com/milouse/latex-awesomebox/blob/master/awesomebox.pdf][awesomebox.pdf]] document.
