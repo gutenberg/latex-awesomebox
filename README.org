@@ -19,3 +19,16 @@ this package. However, we made two important modifications:
     use in this package.
 
 For more details, please refer to the [[https://github.com/milouse/latex-awesomebox/blob/master/awesomebox.pdf][awesomebox.pdf]] document.
+
+* Requirements
+
+ - a working XeLaTeX environment
+ - [[http://fontawesome.io/icons/][FontAwesome]]
+
+* Installation
+
+Download the ~awesomebox.sty~ file and put it in the same folder of the
+document your are composing.
+
+For system wide installation, please refer to the documentation of your
+XeLaTeX distribution.
