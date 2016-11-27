@@ -8,9 +8,10 @@
 \setromanfont[Mapping=tex-text]{Linux Libertine O}
 \setsansfont[Mapping=tex-text]{Linux Biolinum O}
 
-\RequirePackage{polyglossia}
+\usepackage{polyglossia}
 \setdefaultlanguage{english}
 
+\usepackage[vmargin=2cm,hmargin=3cm,includeheadfoot=true]{geometry}
 \linespread{1.2}
 
 \def\abIconRocket{\symbol{"F135}}
@@ -19,7 +20,7 @@
 \newcommand{\cf}[1]{(\emph{cf.} section \ref{#1}, %
   <<\,\nameref{#1}\,>>, p. \pageref{#1})}
 
-\RequirePackage{datetime}
+\usepackage{datetime}
 \newcommand{\colophon}{
   ~\vfill
   \begin{center}
@@ -201,7 +202,7 @@ rule width, you can use our meta command:
 \verb!\awesomebox{icon}{rulewidth}{color}{your text content}!
 \end{center}
 
-\vspace{5mm}
+\clearpage
 
 \begin{center}
 \verb!\awesomebox{\abIconCertificate}{5pt}{magenta}{Lorem ipsum…}!
