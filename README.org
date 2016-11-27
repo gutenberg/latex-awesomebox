@@ -34,3 +34,8 @@ document your are composing.
 
 For system wide installation, please refer to the documentation of your
 XeLaTeX distribution.
+
+* License
+
+Awesome Box is released under the [[http://www.wtfpl.net/txt/copying/][WTFPL]]. A copy of this license is
+distributed in this package.
