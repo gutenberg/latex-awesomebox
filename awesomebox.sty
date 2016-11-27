@@ -33,6 +33,7 @@
 % http://fontawesome.io/cheatsheet/
 
 \def\abIconCheck{\symbol{"F00C}}
+\def\abIconInfoCircle{\symbol{"F05A}}
 \def\abIconFire{\symbol{"F06D}}
 \def\abIconExclamationCircle{\symbol{"F06A}}
 \def\abIconExclamationTriangle{\symbol{"F071}}
@@ -49,12 +50,10 @@
 
 % Some basic colors
 \RequirePackage{xcolor}
-\definecolor{abyellowlight}{RGB}{250,241,212}
-\definecolor{abyellowdark}{RGB}{183,146,20}
-\definecolor{abbluelight}{RGB}{229,235,242}
-\definecolor{abbluedark}{RGB}{52,77,108}
-\definecolor{aborange}{RGB}{204,0,0}
-\definecolor{abreddark}{RGB}{255,133,133}
+\definecolor{abnote}{RGB}{25,64,122}
+\definecolor{abcaution}{RGB}{188,50,0}
+\definecolor{abwarning}{RGB}{188,103,0}
+\definecolor{abimportant}{RGB}{188,0,0}
 
 \newlength{\aweboxleftmargin}
 \setlength{\aweboxleftmargin}{9mm}
@@ -77,16 +76,18 @@
   \end{tabularx}
   \vspace{\aweboxvskip}}
 
-\newcommand{\warningbox}[1]{%
-  \awesomebox{\abIconExclamationTriangle}{\aweboxrulewidth}{abyellowdark}{#1}}
-
 \newcommand{\notebox}[1]{%
-  \awesomebox{\abIconLightBulb}{\aweboxrulewidth}{abbluedark}{#1}}
+  \awesomebox{\abIconInfoCircle}{\aweboxrulewidth}{abnote}{#1}}
 
-\newcommand{\errorbox}[1]{%
-  \awesomebox{\abIconExclamationCircle}{\aweboxrulewidth}{aborange}{#1}}
+\newcommand{\tipbox}[1]{%
+  \awesomebox{\abIconLightBulb}{\aweboxrulewidth}{black}{#1}}
 
-\newcommand{\attentionbox}[1]{%
-  \awesomebox{\abIconFire}{\aweboxrulewidth}{abreddark}{#1}}
+\newcommand{\warningbox}[1]{%
+  \awesomebox{\abIconExclamationTriangle}{\aweboxrulewidth}{abwarning}{#1}}
 
+\newcommand{\cautionbox}[1]{%
+  \awesomebox{\abIconFire}{\aweboxrulewidth}{abcaution}{#1}}
+
+\newcommand{\importantbox}[1]{%
+  \awesomebox{\abIconExclamationCircle}{\aweboxrulewidth}{abimportant}{#1}}
 \endinput

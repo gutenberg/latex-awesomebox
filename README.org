@@ -1,13 +1,17 @@
 #+title: Awesome Boxes
 #+date: <2016-11-22 mar.>
 
-Awesome Boxes is all about drawing boxes around text to alert your
-readers about something particular. The specific aim of this package is
-to use [[http://fontawesome.io/icons/][FontAwesome]] icons to ease the illustration of these boxes.
+Awesome Boxes is all about drawing admonition blocks around text to
+inform or alert your readers about something particular. The specific
+aim of this package is to use [[http://fontawesome.io/icons/][FontAwesome]] icons to ease the illustration
+of these blocks.
 
 This means all the magic of this package only exists if you previously
 installed FontAwesome on your system and made it available for use with
-XeTeX. Yes, this package require you to use XeLaTeX too.
+XeTeX. Yes, this package requires you to use XeLaTeX too.
+
+The idea of admonition blocks comes from the ones you can easily do with
+[[http://asciidoctor.org/docs/user-manual/#admonition][AsciiDoc]].
 
 We use the previous work of Honza Ustohal on [[https://gist.github.com/sway/3101743][fontawesome.sty]] to build
 this package. However, we made two important modifications:

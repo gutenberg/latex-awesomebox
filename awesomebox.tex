@@ -54,14 +54,18 @@
 
 \section{Introduction}
 
-Awesome Boxes is all about drawing boxes around text to alert your
-readers about something particular. The specific aim of this package is
-to use \hrefcolor{http://fontawesome.io/icons/}{FontAwesome} icons to ease
-the illustration of these boxes.
+Awesome Boxes is all about drawing admonition blocks around text to
+inform or alert your readers about something particular. The specific
+aim of this package is to use
+\hrefcolor{http://fontawesome.io/icons/}{FontAwesome} icons to ease the
+illustration of these boxes.
 
 This means all the magic of this package only exists if you previously
 installed FontAwesome on your system and made it available for use with
 \XeTeX. Yes, this package require you to use \XeLaTeX\ too.
+
+The idea of admonition blocks comes from the ones you can easily do with
+\hrefcolor{http://asciidoctor.org/docs/user-manual/\#admonition}{AsciiDoc}.
 
 We use the previous work of Honza Ustohal on
 \hrefcolor{https://gist.github.com/sway/3101743}{fontawesome.sty} to
@@ -82,6 +86,7 @@ Therefore, the only symbols we kept are the following:
 
 \begin{description}
   \item[{\ABFamily\abIconCheck}] \verb!\ABFamily\abIconCheck!
+  \item[{\ABFamily\abIconInfoCircle}] \verb!\ABFamily\abIconInfoCircle!
   \item[{\ABFamily\abIconFire}] \verb!\ABFamily\abIconFire!
   \item[{\ABFamily\abIconExclamationCircle}] \verb!\ABFamily\abIconExclamationCircle!
   \item[{\ABFamily\abIconExclamationTriangle}] \verb!\ABFamily\abIconTriangle!
@@ -105,6 +110,10 @@ document:
 
 \section{Provided boxes}
 
+The provided boxes follow the name convention of the
+\hrefcolor{http://asciidoctor.org/docs/user-manual/\#admonition}{admonition
+  blocks} from \hrefcolor{http://asciidoctor.org}{AsciiDoc}.
+
 \begin{center}
 \verb!\notebox{Lorem ipsum…}!
 \end{center}
@@ -115,6 +124,19 @@ document:
   Fusce aliquet augue sapien, non efficitur mi ornare sed. Morbi at
   dictum felis. Pellentesque tortor lacus, semper et neque vitae,
   egestas commodo nisl.}
+
+\begin{center}
+\verb!\tipbox{Lorem ipsum…}!
+\end{center}
+
+\tipbox{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+  aliquet libero quis lectus elementum fermentum.
+
+  Fusce aliquet augue sapien, non efficitur mi ornare sed. Morbi at
+  dictum felis. Pellentesque tortor lacus, semper et neque vitae,
+  egestas commodo nisl.}
+
+\clearpage
 
 \begin{center}
 \verb!\warningbox{Lorem ipsum…}!
@@ -128,22 +150,22 @@ document:
   egestas commodo nisl.}
 
 \begin{center}
-\verb!\attentionbox{Lorem ipsum…}!
+\verb!\cautionbox{Lorem ipsum…}!
 \end{center}
 
-\attentionbox{Lorem ipsum dolor sit amet, consectetur adipiscing
-  elit. Nam aliquet libero quis lectus elementum fermentum.
+\cautionbox{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+  aliquet libero quis lectus elementum fermentum.
 
   Fusce aliquet augue sapien, non efficitur mi ornare sed. Morbi at
   dictum felis. Pellentesque tortor lacus, semper et neque vitae,
   egestas commodo nisl.}
 
 \begin{center}
-\verb!\errorbox{Lorem ipsum…}!
+\verb!\importantbox{Lorem ipsum…}!
 \end{center}
 
-\errorbox{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-  aliquet libero quis lectus elementum fermentum.
+\importantbox{Lorem ipsum dolor sit amet, consectetur adipiscing
+  elit. Nam aliquet libero quis lectus elementum fermentum.
 
   Fusce aliquet augue sapien, non efficitur mi ornare sed. Morbi at
   dictum felis. Pellentesque tortor lacus, semper et neque vitae,
