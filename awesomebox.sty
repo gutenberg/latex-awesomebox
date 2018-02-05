@@ -35,6 +35,7 @@
 \definecolor{abcaution}{RGB}{188,50,0}
 \definecolor{abwarning}{RGB}{188,103,0}
 \definecolor{abimportant}{RGB}{188,0,0}
+\definecolor{abvrulecolor}{RGB}{221,221,216}
 
 \newlength{\aweboxleftmargin}
 \setlength{\aweboxleftmargin}{9mm}
@@ -50,7 +51,7 @@
   \vspace{\aweboxvskip}
   \noindent
   \begin{tabularx}{\linewidth}{%
-      m{\aweboxleftmargin}!{\color{#3}\vrule width #2}X}
+      m{\aweboxleftmargin}!{\color{abvrulecolor}\vrule width #2}X}
     \raisebox{\aweboxsignraise}{\textcolor{#3}{\Huge#1}} & #4 \\
   \end{tabularx}
   \vspace{\aweboxvskip}}
