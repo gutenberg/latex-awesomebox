@@ -1,60 +1,31 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{awesomebox}[2018/01/31 v0.2]
+\ProvidesPackage{awesomebox}[2018/02/10 v0.3]
 
 % Awesome Box has been written by Étienne Deparis and is released under
 % the WTFPL (http://www.wtfpl.net/txt/copying/).
 % A copy of this license is distributed in this package.
 
+% Try to just depend on fontawesome package
+% https://ctan.org/pkg/fontawesome
+\RequirePackage{fontawesome}
 
-\RequirePackage{ifxetex,ifluatex}
-\newif\ifawesomebox@notxetex\awesomebox@notxetextrue
-\ifxetex
-  \awesomebox@notxetexfalse
-\else
-  \ifluatex
-    \awesomebox@notxetexfalse
-  \fi
-\fi
+% Compatibility with old version of this package
+\def\abIconCheck{\faCheck}
+\def\abIconInfoCircle{\faInfoCircle}
+\def\abIconFire{\faFire}
+\def\abIconExclamationCircle{\faExclamationCircle}
+\def\abIconExclamationTriangle{\faExclamationTriangle}
+\def\abIconCogs{\faCogs}
+\def\abIconThumbsUp{\faThumbsUp}
+\def\abIconThumbsDown{\faThumbsDown}
+\def\abIconCertificate{\faCertificate}
+\def\abIconLightBulb{\faLightbulbO}
+\def\abIconTwitter{\faTwitter}
+\def\abIconGithub{\faGithub}
 
-\ifawesomebox@notxetex
-\PackageError{awesomebox}{%
-  You are trying to use awesomebox\MessageBreak
-  with something else than xelatex or luatex
-}{%
-  Please abort now with <ctrl+d>
-}
-\fi
-
-% This package heavily uses the work of Honza Ustohal, known under the
-% name FontAwesome bindings for (Xe)LaTeX:
-% https://gist.github.com/sway/3101743
-%
-% Translation of FontAwesome's private range characters into XeTeX
-% symbols. All icons are camel-cased and prefixed with 'abIcon', i.e. what
-% was .icon-align-center the CSS version of FontAwesome becomes
-% \abIconAlignCenter
-%
-% New icons code could be retrieve from this page
-% http://fontawesome.io/cheatsheet/
-
-\def\abIconCheck{\symbol{"F00C}}
-\def\abIconInfoCircle{\symbol{"F05A}}
-\def\abIconFire{\symbol{"F06D}}
-\def\abIconExclamationCircle{\symbol{"F06A}}
-\def\abIconExclamationTriangle{\symbol{"F071}}
-\def\abIconCogs{\symbol{"F085}}
-\def\abIconThumbsUp{\symbol{"F087}}
-\def\abIconThumbsDown{\symbol{"F088}}
-\def\abIconCertificate{\symbol{"F0A3}}
-\def\abIconLightBulb{\symbol{"F0EB}}
-\def\abIconTwitter{\symbol{"F099}}
-\def\abIconGithub{\symbol{"F09B}}
-
-\RequirePackage{xltxtra}
-\newfontfamily{\ABFamily}{FontAwesome}
-
-% Some basic colors
+% https://ctan.org/pkg/xcolor
 \RequirePackage{xcolor}
+% Some basic colors
 \definecolor{abnote}{RGB}{25,64,122}
 \definecolor{abcaution}{RGB}{188,50,0}
 \definecolor{abwarning}{RGB}{188,103,0}
@@ -69,6 +40,7 @@
 \newlength{\aweboxrulewidth}
 \setlength{\aweboxrulewidth}{2pt}
 
+% https://ctan.org/pkg/tabularx
 \RequirePackage{tabularx}
 
 % \awesomebox{icon}{rulewidth}{color}{content}
@@ -77,7 +49,7 @@
   \noindent
   \begin{tabularx}{\linewidth}{%
       m{\aweboxleftmargin}!{\color{#3}\vrule width #2}X}
-    \raisebox{\aweboxsignraise}{\textcolor{#3}{\Huge\ABFamily#1}} & #4 \\
+    \raisebox{\aweboxsignraise}{\textcolor{#3}{\Huge#1}} & #4 \\
   \end{tabularx}
   \vspace{\aweboxvskip}}
 
