@@ -1,29 +1,13 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{awesomebox}[2018/01/31 v0.2]
+\ProvidesPackage{awesomebox}[2018/02/05 v0.3]
 
 % Awesome Box has been written by Étienne Deparis and is released under
 % the WTFPL (http://www.wtfpl.net/txt/copying/).
 % A copy of this license is distributed in this package.
 
-
-\RequirePackage{ifxetex,ifluatex}
-\newif\ifawesomebox@notxetex\awesomebox@notxetextrue
-\ifxetex
-  \awesomebox@notxetexfalse
-\else
-  \ifluatex
-    \awesomebox@notxetexfalse
-  \fi
-\fi
-
-\ifawesomebox@notxetex
-\PackageError{awesomebox}{%
-  You are trying to use awesomebox\MessageBreak
-  with something else than xelatex or luatex
-}{%
-  Please abort now with <ctrl+d>
-}
-\fi
+% v0.3 - Gilbert Fuerer (https://github.com/foreachthing)
+% * removed the requirement for xelatex or luatex.
+% * It can now be used with pdflatex.
 
 % This package heavily uses the work of Honza Ustohal, known under the
 % name FontAwesome bindings for (Xe)LaTeX:
@@ -37,28 +21,21 @@
 % New icons code could be retrieve from this page
 % http://fontawesome.io/cheatsheet/
 
-\def\abIconCheck{\symbol{"F00C}}
-\def\abIconInfoCircle{\symbol{"F05A}}
-\def\abIconFire{\symbol{"F06D}}
-\def\abIconExclamationCircle{\symbol{"F06A}}
-\def\abIconExclamationTriangle{\symbol{"F071}}
-\def\abIconCogs{\symbol{"F085}}
-\def\abIconThumbsUp{\symbol{"F087}}
-\def\abIconThumbsDown{\symbol{"F088}}
-\def\abIconCertificate{\symbol{"F0A3}}
-\def\abIconLightBulb{\symbol{"F0EB}}
-\def\abIconTwitter{\symbol{"F099}}
-\def\abIconGithub{\symbol{"F09B}}
+% https://ctan.org/pkg/fontawesome
+\RequirePackage{fontawesome}
 
-\RequirePackage{xltxtra}
-\newfontfamily{\ABFamily}{FontAwesome}
+% https://ctan.org/pkg/tabularx
+\RequirePackage{tabularx}
+
+% https://ctan.org/pkg/xcolor
+\RequirePackage{xcolor}
 
 % Some basic colors
-\RequirePackage{xcolor}
 \definecolor{abnote}{RGB}{25,64,122}
 \definecolor{abcaution}{RGB}{188,50,0}
 \definecolor{abwarning}{RGB}{188,103,0}
 \definecolor{abimportant}{RGB}{188,0,0}
+\definecolor{abvrulecolor}{RGB}{221,221,216}
 
 \newlength{\aweboxleftmargin}
 \setlength{\aweboxleftmargin}{9mm}
@@ -69,15 +46,13 @@
 \newlength{\aweboxrulewidth}
 \setlength{\aweboxrulewidth}{2pt}
 
-\RequirePackage{tabularx}
-
 % \awesomebox{icon}{rulewidth}{color}{content}
 \newcommand{\awesomebox}[4]{%
   \vspace{\aweboxvskip}
   \noindent
   \begin{tabularx}{\linewidth}{%
-      m{\aweboxleftmargin}!{\color{#3}\vrule width #2}X}
-    \raisebox{\aweboxsignraise}{\textcolor{#3}{\Huge\ABFamily#1}} & #4 \\
+      m{\aweboxleftmargin}!{\color{abvrulecolor}\vrule width #2}X}
+    \raisebox{\aweboxsignraise}{\textcolor{#3}{\Huge#1}} & #4 \\
   \end{tabularx}
   \vspace{\aweboxvskip}}
 
