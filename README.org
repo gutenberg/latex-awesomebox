@@ -1,35 +1,24 @@
 #+title: Awesome Boxes
-#+date: <2018-01-31 mar.>
+#+date: <2018-02-10 sam.>
 
 Awesome Boxes is all about drawing admonition blocks around text to
 inform or alert your readers about something particular. The specific
 aim of this package is to use [[http://fontawesome.io/icons/][FontAwesome]] icons to ease the illustration
 of these blocks.
 
-This means all the magic of this package only exists if you previously
-installed FontAwesome on your system and made it available for use with
-XeTeX. Yes, this package requires you to use XeLaTeX too.
-
 The idea of admonition blocks comes from the ones you can easily do with
 [[http://asciidoctor.org/docs/user-manual/#admonition][AsciiDoc]].
-
-We use the previous work of Honza Ustohal on [[https://gist.github.com/sway/3101743][fontawesome.sty]] to build
-this package. However, we made two important modifications:
-
- 1. we rename the internal commands of ~fontawesome.sty~ from ~\fa~ to
-    ~\abIcon~ and the ~\FA~ font switch to ~\ABFamily~ to avoid
-    collision if you want to use both of them;
- 2. we remove most of the provided icons to only kept the one we really
-    use in this package.
 
 For more details, please refer to the [[https://github.com/milouse/latex-awesomebox/blob/master/awesomebox.pdf][awesomebox.pdf]] document.
 
 * Requirements
 
- - a working XeLaTeX environment
- - the ~ifxetex~, ~ifluatex~, ~xltxtra~, ~xcolor~ and ~tabularx~ LaTeX
-   packages
- - [[http://fontawesome.io/icons/][FontAwesome]]
+The following LaTeX packages are required (they should be already
+included in your LaTeX distribution):
+
+- ~fontawesome~
+- ~xcolor~
+- ~tabularx~
 
 * Installation
 
@@ -37,7 +26,7 @@ Download the ~awesomebox.sty~ file and put it in the same folder of the
 document your are composing.
 
 For system wide installation, please refer to the documentation of your
-XeLaTeX distribution.
+LaTeX distribution.
 
 * License
 
