@@ -17,8 +17,8 @@ README.md: README.org
 	pandoc -o README.md README.org
 
 $(BASENAME).pdf:
-	xelatex -halt-on-error "$(BASENAME).tex" &> /dev/null
-	xelatex -halt-on-error "$(BASENAME).tex" &> /dev/null
+	xelatex -halt-on-error "$(BASENAME).tex"
+	xelatex -interaction batchmode -halt-on-error "$(BASENAME).tex"
 
 clean:
 	rm -rf $(BASENAME)
