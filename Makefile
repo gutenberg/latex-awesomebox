@@ -1,9 +1,10 @@
 BASENAME = awesomebox
 # System-wide directory is TEXMFDIST (/usr/share/texmf-dist)
-DESTDIR ?= $(shell kpsewhich -var-value=TEXMFHOME)
+#DESTDIR ?= $(shell kpsewhich -var-value=TEXMFHOME)
+DESTDIR ?= /usr/share/texmf-dist
 INSTALL_DIR = $(DESTDIR)/tex/xelatex/$(BASENAME)
 
-all: clean ctan
+all: distclean ctan
 
 build: README.md $(BASENAME).pdf
 
@@ -22,8 +23,10 @@ $(BASENAME).pdf:
 
 clean:
 	rm -rf $(BASENAME)
-	rm $(BASENAME).pdf
 	rm -f README.md $(BASENAME).zip $(BASENAME).aux $(BASENAME).log $(BASENAME).out
+
+distclean: clean
+	rm $(BASENAME).pdf
 
 install: $(BASENAME).pdf
 	install -d -m 755 $(INSTALL_DIR)
