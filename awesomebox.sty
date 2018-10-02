@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{awesomebox}[2018/02/10 v0.3]
+\ProvidesPackage{awesomebox}[2018/08/01 v0.4]
 
 % Awesome Box has been written by Étienne Deparis and is released under
 % the WTFPL (http://www.wtfpl.net/txt/copying/).
@@ -45,17 +45,18 @@
 \newlength{\aweboxrulewidth}
 \setlength{\aweboxrulewidth}{2pt}
 
-% https://ctan.org/pkg/tabularx
-\RequirePackage{tabularx}
+% https://ctan.org/pkg/tabu
+\RequirePackage{tabu}
 
+% Commands API
 % \awesomebox{icon}{rulewidth}{color}{content}
 \newcommand{\awesomebox}[4]{%
   \vspace{\aweboxvskip}
   \noindent
-  \begin{tabularx}{\linewidth}{%
-      m{\aweboxleftmargin}!{\color{#3}\vrule width #2}X}
+  \begin{tabu} to \linewidth
+    {m{\aweboxleftmargin}!{\color{#3}\vrule width #2}X}
     \raisebox{\aweboxsignraise}{\textcolor{#3}{\Huge#1}} & #4 \\
-  \end{tabularx}
+  \end{tabu}
   \vspace{\aweboxvskip}}
 
 \newcommand{\notebox}[1]{%
@@ -72,4 +73,35 @@
 
 \newcommand{\importantbox}[1]{%
   \awesomebox{\abIconExclamationCircle}{\aweboxrulewidth}{abimportant}{#1}}
+
+% Environments API
+% \begin{awesomeblock}{icon}{rulewidth}{color}
+%   content
+% \end{awesomeblock}
+\newenvironment{awesomeblock}[3]%
+{\vspace{\aweboxvskip}\noindent
+  \begin{tabu} to \linewidth %
+    {m{\aweboxleftmargin}!{\color{#3}\vrule width #2}X}%
+    \raisebox{\aweboxsignraise}{\textcolor{#3}{\Huge#1}} & }
+  {\\\end{tabu}\vspace{\aweboxvskip}}
+
+\newenvironment{noteblock}%
+{\begin{awesomeblock}{\abIconInfoCircle}{\aweboxrulewidth}{abnote}}
+  {\end{awesomeblock}}
+
+\newenvironment{tipblock}%
+{\begin{awesomeblock}{\abIconLightBulb}{\aweboxrulewidth}{black}}
+  {\end{awesomeblock}}
+
+\newenvironment{warningblock}%
+{\begin{awesomeblock}{\abIconExclamationTriangle}{\aweboxrulewidth}{abwarning}}
+  {\end{awesomeblock}}
+
+\newenvironment{cautionblock}%
+{\begin{awesomeblock}{\abIconFire}{\aweboxrulewidth}{abcaution}}
+  {\end{awesomeblock}}
+
+\newenvironment{importantblock}%
+{\begin{awesomeblock}{\abIconExclamationCircle}{\aweboxrulewidth}{abimportant}}
+  {\end{awesomeblock}}
 \endinput

@@ -180,12 +180,14 @@ Here are some examples of custom boxes:
 \verb!\awesomebox{\faCogs}{0pt}{black}{Lorem ipsum…}!
 \end{center}
 
-\awesomebox{\faCogs}{0pt}{black}{Lorem ipsum dolor sit amet, consectetur
+\begin{awesomeblock}{\faCogs}{0pt}{black}
+  Lorem ipsum dolor sit amet, consectetur
   adipiscing elit. Nam aliquet libero quis lectus elementum fermentum.
 
   Fusce aliquet augue sapien, non efficitur mi ornare sed. Morbi at
   dictum felis. Pellentesque tortor lacus, semper et neque vitae,
-  egestas commodo nisl.}
+  egestas commodo nisl.
+\end{awesomeblock}
 
 \begin{center}
 \verb!\awesomebox{\faRocket}{2pt}{violet}{Lorem ipsum…}!
@@ -227,7 +229,7 @@ This width is used for the vertical rule of our four default boxes. Its
 default value is 2pt and you can change it with:
 \verb!\setlength{\aweboxrulewidth}{2pt}!.
 
-\section{In other environments}
+\section{With other environments}
 
 Awesome boxes may be used in any other environments, like in a list.
 
@@ -244,6 +246,18 @@ Awesome boxes may be used in any other environments, like in a list.
 \item My second item with \notebox{A note box!}
 \item Last and finally
 \end{itemize}
+
+It may contain other environments too, but in that case, you should
+prefer the environment API:
+
+\vspace{1cm}
+\begin{importantblock}
+  \begin{itemize}
+  \item My first item
+  \item My second item with \notebox{A note box!}
+  \item Last and finally
+  \end{itemize}
+\end{importantblock}
 
 \colophon
 
