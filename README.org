@@ -3,8 +3,8 @@
 
 Awesome Boxes is all about drawing admonition blocks around text to
 inform or alert your readers about something particular. The specific
-aim of this package is to use [[http://fontawesome.io/icons/][FontAwesome]] icons to ease the illustration
-of these blocks.
+aim of this package is to use [[https://fontawesome.com][FontAwesome 5]] icons to ease the
+illustration of these blocks.
 
 The idea of admonition blocks comes from the ones you can easily do with
 [[http://asciidoctor.org/docs/user-manual/#admonition][AsciiDoc]].
@@ -16,7 +16,7 @@ For more details, please refer to the [[https://github.com/milouse/latex-awesome
 The following LaTeX packages are required (they should be already
 included in your LaTeX distribution):
 
-- ~fontawesome~
+- ~fontawesome5~
 - ~xcolor~
 - ~tabu~
 
