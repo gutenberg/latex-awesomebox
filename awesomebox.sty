@@ -35,6 +35,7 @@
 \definecolor{abcaution}{RGB}{188,50,0}
 \definecolor{abwarning}{RGB}{188,103,0}
 \definecolor{abimportant}{RGB}{188,0,0}
+\definecolor{abvrulecolor}{RGB}{221,221,216}
 
 \newlength{\aweboxleftmargin}
 \setlength{\aweboxleftmargin}{9mm}
@@ -49,59 +50,59 @@
 \RequirePackage{tabu}
 
 % Commands API
-% \awesomebox{icon}{rulewidth}{color}{content}
-\newcommand{\awesomebox}[4]{%
+% \awesomebox[rulecolor]{rulewidth}{icon}{iconcolor}{content}
+\newcommand{\awesomebox}[5][abvrulecolor]{%
   \vspace{\aweboxvskip}
   \noindent
   \begin{tabu} to \linewidth
-    {m{\aweboxleftmargin}!{\color{#3}\vrule width #2}X}
-    \raisebox{\aweboxsignraise}{\textcolor{#3}{\Huge#1}} & #4 \\
+    {m{\aweboxleftmargin}!{\color{#1}\vrule width #2}X}
+    \raisebox{\aweboxsignraise}{\textcolor{#4}{\Huge#3}} & #5 \\
   \end{tabu}
   \vspace{\aweboxvskip}}
 
 \newcommand{\notebox}[1]{%
-  \awesomebox{\abIconInfoCircle}{\aweboxrulewidth}{abnote}{#1}}
+  \awesomebox[abnote]{\aweboxrulewidth}{\abIconInfoCircle}{abnote}{#1}}
 
 \newcommand{\tipbox}[1]{%
-  \awesomebox{\abIconLightBulb}{\aweboxrulewidth}{black}{#1}}
+  \awesomebox{\aweboxrulewidth}{\abIconLightBulb}{black}{#1}}
 
 \newcommand{\warningbox}[1]{%
-  \awesomebox{\abIconExclamationTriangle}{\aweboxrulewidth}{abwarning}{#1}}
+  \awesomebox[abwarning]{\aweboxrulewidth}{\abIconExclamationTriangle}{abwarning}{#1}}
 
 \newcommand{\cautionbox}[1]{%
-  \awesomebox{\abIconFire}{\aweboxrulewidth}{abcaution}{#1}}
+  \awesomebox[abcaution]{\aweboxrulewidth}{\abIconFire}{abcaution}{#1}}
 
 \newcommand{\importantbox}[1]{%
-  \awesomebox{\abIconExclamationCircle}{\aweboxrulewidth}{abimportant}{#1}}
+  \awesomebox[abimportant]{\aweboxrulewidth}{\abIconExclamationCircle}{abimportant}{#1}}
 
 % Environments API
-% \begin{awesomeblock}{icon}{rulewidth}{color}
+% \begin{awesomeblock}[rulecolor]{rulewidth}{icon}{iconcolor}
 %   content
 % \end{awesomeblock}
-\newenvironment{awesomeblock}[3]%
+\newenvironment{awesomeblock}[4][abvrulecolor]%
 {\vspace{\aweboxvskip}\noindent
   \begin{tabu} to \linewidth %
-    {m{\aweboxleftmargin}!{\color{#3}\vrule width #2}X}%
-    \raisebox{\aweboxsignraise}{\textcolor{#3}{\Huge#1}} & }
+    {m{\aweboxleftmargin}!{\color{#1}\vrule width #2}X}%
+    \raisebox{\aweboxsignraise}{\textcolor{#4}{\Huge#3}} & }
   {\\\end{tabu}\vspace{\aweboxvskip}}
 
 \newenvironment{noteblock}%
-{\begin{awesomeblock}{\abIconInfoCircle}{\aweboxrulewidth}{abnote}}
+{\begin{awesomeblock}[abnote]{\aweboxrulewidth}{\abIconInfoCircle}{abnote}}
   {\end{awesomeblock}}
 
 \newenvironment{tipblock}%
-{\begin{awesomeblock}{\abIconLightBulb}{\aweboxrulewidth}{black}}
+{\begin{awesomeblock}{\aweboxrulewidth}{\abIconLightBulb}{black}}
   {\end{awesomeblock}}
 
 \newenvironment{warningblock}%
-{\begin{awesomeblock}{\abIconExclamationTriangle}{\aweboxrulewidth}{abwarning}}
+{\begin{awesomeblock}[abwarning]{\aweboxrulewidth}{\abIconExclamationTriangle}{abwarning}}
   {\end{awesomeblock}}
 
 \newenvironment{cautionblock}%
-{\begin{awesomeblock}{\abIconFire}{\aweboxrulewidth}{abcaution}}
+{\begin{awesomeblock}[abcaution]{\aweboxrulewidth}{\abIconFire}{abcaution}}
   {\end{awesomeblock}}
 
 \newenvironment{importantblock}%
-{\begin{awesomeblock}{\abIconExclamationCircle}{\aweboxrulewidth}{abimportant}}
+{\begin{awesomeblock}[abimportant]{\aweboxrulewidth}{\abIconExclamationCircle}{abimportant}}
   {\end{awesomeblock}}
 \endinput
