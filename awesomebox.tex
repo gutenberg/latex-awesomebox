@@ -78,6 +78,7 @@ document:
 \end{center}
 
 \section{Provided boxes}
+\subsection{Inline boxes}
 
 The provided boxes follow the name convention of the
 \hrefcolor{http://asciidoctor.org/docs/user-manual/\#admonition}{admonition
@@ -140,6 +141,33 @@ The provided boxes follow the name convention of the
   dictum felis. Pellentesque tortor lacus, semper et neque vitae,
   egestas commodo nisl.}
 
+\subsection{Environments}
+\label{sec:environments}
+
+You can also insert admonition blocks with an environment syntax. The
+same names can be used, but with a \emph{block} suffixe.
+
+\begin{verbatim}
+\begin{noteblock}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+aliquet libero quis lectus elementum fermentum.
+\end{noteblock}
+\end{verbatim}
+
+
+For the exactly same rendering:
+
+\vspace{5mm}
+
+\begin{noteblock}
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquet
+  libero quis lectus elementum fermentum.
+
+  Fusce aliquet augue sapien, non efficitur mi ornare sed. Morbi at
+  dictum felis. Pellentesque tortor lacus, semper et neque vitae,
+  egestas commodo nisl.
+\end{noteblock}
+
 \section{How to add new icons?}
 \label{sec:new-icons}
 
@@ -152,6 +180,7 @@ For example, if you want to add the \emph{rocket} icon
 (\faRocket), you just have to  insert \verb!\faRocket!.
 
 \section{How to create your own box?}
+\subsection{Inline boxes}
 
 To create your own box, with your own colour, your own icon or your own
 rule width, you can use our meta command:
@@ -159,8 +188,6 @@ rule width, you can use our meta command:
 \begin{center}
 \verb!\awesomebox{icon}{rulewidth}{color}{your text content}!
 \end{center}
-
-\clearpage
 
 Here are some examples of custom boxes:
 
@@ -200,6 +227,40 @@ Here are some examples of custom boxes:
   Fusce aliquet augue sapien, non efficitur mi ornare sed. Morbi at
   dictum felis. Pellentesque tortor lacus, semper et neque vitae,
   egestas commodo nisl.}
+
+\subsection{Environments}
+
+To create your own box, with your own colour, your own icon or your own
+rule width, you can use our meta command:
+
+\begin{verbatim}
+\begin{awesomeblock}{icon}{rulewidth}{color}
+  your text content
+\end{awesomeblock}
+\end{verbatim}
+
+For example, we can rewrite the first previous example as:
+
+\begin{verbatim}
+\begin{awesomeblock}{\faCertificate}{5pt}{magenta}
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquet
+  libero quis lectus elementum fermentum.
+\end{awesomeblock}
+\end{verbatim}
+
+Which will render this way:
+
+\vspace{5mm}
+
+\begin{awesomeblock}{\faCertificate}{5pt}{magenta}
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquet
+  libero quis lectus elementum fermentum.
+
+  Fusce aliquet augue sapien, non efficitur mi ornare sed. Morbi at
+  dictum felis. Pellentesque tortor lacus, semper et neque vitae,
+  egestas commodo nisl.
+\end{awesomeblock}
+
 
 \section{Other options}
 
@@ -248,9 +309,9 @@ Awesome boxes may be used in any other environments, like in a list.
 \end{itemize}
 
 It may contain other environments too, but in that case, you should
-prefer the environment API:
+prefer the environment API (see Section \ref{sec:environments}):
 
-\vspace{1cm}
+\begin{verbatim}
 \begin{importantblock}
   \begin{itemize}
   \item My first item
@@ -258,6 +319,19 @@ prefer the environment API:
   \item Last and finally
   \end{itemize}
 \end{importantblock}
+\end{verbatim}
+
+\vspace{5mm}
+
+\begin{importantblock}
+  \begin{itemize}
+  \item My first item
+  \item My second item with \notebox{A note box!}
+  \item Last and finally
+  \end{itemize}
+\end{importantblock}
+
+\clearpage
 
 \colophon
 
