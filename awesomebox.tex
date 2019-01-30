@@ -11,6 +11,8 @@
 \usepackage{polyglossia}
 \setdefaultlanguage{english}
 
+\usepackage{minted}
+
 % Comment out the lines above and uncomment the following lines to test
 % usage with pdflatex
 %\usepackage[utf8]{inputenc}
@@ -346,6 +348,28 @@ will give:
   \vspace{-5mm}
   \end{itemize}
 \end{importantblock}
+
+\clearpage
+
+Or with a more complex example with minted environment:
+
+\begin{verbatim}
+\begin{noteblock}
+  This could be written as:
+
+  \begin{minted}{c++}
+    std::cout << "hello world!" << std::endl;
+  \end{minted}
+\end{noteblock}
+\end{verbatim}
+
+\begin{noteblock}
+  This could be written as:
+
+  \begin{minted}{c++}
+    std::cout << "hello world!" << std::endl;
+  \end{minted}
+\end{noteblock}
 
 \section{Breaking changes}
 
