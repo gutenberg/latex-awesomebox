@@ -43,7 +43,9 @@
 \definecolor{abvrulecolor}{RGB}{221,221,216}
 
 \newlength{\aweboxleftmargin}
-\setlength{\aweboxleftmargin}{9mm}
+\setlength{\aweboxleftmargin}{0.08\linewidth}
+\newlength{\aweboxcontentwidth}
+\setlength{\aweboxcontentwidth}{0.92\linewidth}
 \newlength{\aweboxvskip}
 \setlength{\aweboxvskip}{5mm}
 \newlength{\aweboxsignraise}
@@ -51,18 +53,16 @@
 \newlength{\aweboxrulewidth}
 \setlength{\aweboxrulewidth}{2pt}
 
-% https://ctan.org/pkg/tabu
-\RequirePackage{tabu}
+\RequirePackage{array}
 
 % Commands API
 % \awesomebox[rulecolor]{rulewidth}{icon}{iconcolor}{content}
 \newcommand{\awesomebox}[5][abvrulecolor]{%
-  \vspace{\aweboxvskip}
-  \noindent
-  \begin{tabu} to \linewidth
-    {m{\aweboxleftmargin}!{\color{#1}\vrule width #2}X}
+  \vspace{\aweboxvskip}\noindent
+  \begin{tabular}%
+    {p{\aweboxleftmargin}!{\color{#1}\vrule width #2}p{\aweboxcontentwidth}}
     \raisebox{\aweboxsignraise}{\textcolor{#4}{\Huge#3}} & #5 \\
-  \end{tabu}
+  \end{tabular}
   \vspace{\aweboxvskip}}
 
 \newcommand{\notebox}[1]{%
@@ -86,10 +86,10 @@
 % \end{awesomeblock}
 \newenvironment{awesomeblock}[4][abvrulecolor]%
 {\vspace{\aweboxvskip}\noindent
-  \begin{tabu} to \linewidth %
-    {m{\aweboxleftmargin}!{\color{#1}\vrule width #2}X}%
+  \begin{tabular}%
+    {p{\aweboxleftmargin}!{\color{#1}\vrule width #2}p{\aweboxcontentwidth}}
     \raisebox{\aweboxsignraise}{\textcolor{#4}{\Huge#3}} & }
-  {\\\end{tabu}\vspace{\aweboxvskip}}
+{\\\end{tabular}\vspace{\aweboxvskip}}
 
 \newenvironment{noteblock}%
 {\begin{awesomeblock}[abnote]{\aweboxrulewidth}{\abIconInfoCircle}{abnote}}

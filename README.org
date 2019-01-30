@@ -18,7 +18,7 @@ included in your LaTeX distribution):
 
 - ~fontawesome5~
 - ~xcolor~
-- ~tabu~
+- ~array~
 
 * Installation
 
