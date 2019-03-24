@@ -61,12 +61,12 @@
 \def\abHline{\hline}
 
 % Commands API
-% \awesomebox[rulecolor][hrule]{rulewidth}{icon}{iconcolor}{content}
-\NewDocumentCommand \awesomebox { O{abvrulecolor} O{} m m m +m }{%
+% \awesomebox[rulecolor][hrule][title]{rulewidth}{icon}{iconcolor}{content}
+\NewDocumentCommand \awesomebox { O{abvrulecolor} O{} o m m m +m }{%
   \vspace{\aweboxvskip}\noindent
   \begin{tabular}%
-    {p{\aweboxleftmargin}!{\color{#1}\vrule width #3}p{\aweboxcontentwidth}}
-    #2 \raisebox{\aweboxsignraise}{\textcolor{#5}{\Huge#4}} & #6 \\ #2
+    {p{\aweboxleftmargin}!{\color{#1}\vrule width #4}p{\aweboxcontentwidth}}
+    \IfValueTF {#3} { & #3 \\ #2 \raisebox{\aweboxsignraise}{\textcolor{#6}{\Huge#5}} & #7 \\ #2} {#2 \raisebox{\aweboxsignraise}{\textcolor{#6}{\Huge#5}} & #7 \\ #2}
   \end{tabular}
   \vspace{\aweboxvskip}}
 
@@ -86,14 +86,14 @@
   \awesomebox[abimportant]{\aweboxrulewidth}{\abIconExclamationCircle}{abimportant}{#1}}
 
 % Environments API
-% \begin{awesomeblock}[rulecolor][hrule]{rulewidth}{icon}{iconcolor}
+% \begin{awesomeblock}[rulecolor][hrule][title]{rulewidth}{icon}{iconcolor}
 %   content
 % \end{awesomeblock}
-\NewDocumentEnvironment{awesomeblock}{ O{abvrulecolor} O{} m m m }
+\NewDocumentEnvironment{awesomeblock}{ O{abvrulecolor} O{} o m m m }
 {\vspace{\aweboxvskip}\noindent
   \begin{tabular}%
-    {p{\aweboxleftmargin}!{\color{#1}\vrule width #3}p{\aweboxcontentwidth}}
-    #2 \raisebox{\aweboxsignraise}{\textcolor{#5}{\Huge#4}} & }
+    {p{\aweboxleftmargin}!{\color{#1}\vrule width #4}p{\aweboxcontentwidth}}
+    \IfValueTF {#3} { & #3 \\ #2 \raisebox{\aweboxsignraise}{\textcolor{#6}{\Huge#5}} &} {#2 \raisebox{\aweboxsignraise}{\textcolor{#6}{\Huge#5}} &}}
 {\\ #2 \end{tabular}\vspace{\aweboxvskip}}
 
 \newenvironment{noteblock}%
