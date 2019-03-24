@@ -182,11 +182,12 @@ For example, if you want to add the \emph{rocket} icon
 \label{sec:howtoown}
 \subsection{Inline boxes}
 
-To create your own box, with your own colour, your own icon or your own
-rule width, you can use our meta command:
+To create your own box, with your own colour, your own icon, your own
+rule width, or your own horizontal rules at the top and the bottom of
+your boxes, you can use our meta command:
 
 \begin{center}
-\verb!\awesomebox[rulecolor]{rulewidth}{icon}{iconcolor}{your text content}!
+\verb!\awesomebox[rulecolor][hrule]{rulewidth}{icon}{iconcolor}{your text content}!
 \end{center}
 
 Here are some examples of custom boxes:
@@ -228,13 +229,40 @@ Here are some examples of custom boxes:
   dictum felis. Pellentesque tortor lacus, semper et neque vitae,
   egestas commodo nisl.}
 
+\begin{center}
+\verb!\awesomebox[white][\abCline]{0pt}{\faGrinBeam[regular]}{black}{Lorem ipsum…}!
+\end{center}
+
+\awesomebox[white][\abCline]{0pt}{\faGrinBeam[regular]}{black}{Lorem ipsum dolor sit amet,
+  consectetur adipiscing elit. Nam aliquet libero quis lectus elementum
+  fermentum.
+
+  Fusce aliquet augue sapien, non efficitur mi ornare sed. Morbi at
+  dictum felis. Pellentesque tortor lacus, semper et neque vitae,
+  egestas commodo nisl.}
+
+\begin{center}
+\verb!\awesomebox[black][\abHline]{2pt}{\faBomb}{black}{Lorem ipsum…}!
+\end{center}
+
+\awesomebox[black][\abHline]{2pt}{\faBomb}{black}{Lorem ipsum dolor sit amet,
+  consectetur adipiscing elit. Nam aliquet libero quis lectus elementum
+  fermentum.
+
+  Fusce aliquet augue sapien, non efficitur mi ornare sed. Morbi at
+  dictum felis. Pellentesque tortor lacus, semper et neque vitae,
+  egestas commodo nisl.}
+
+
+
 \subsection{Environments}
 
-To create your own box, with your own colour, your own icon or your own
-rule width, you can use our meta command:
+To create your own box, with your own colour, your own icon, your own
+rule width, or your own horizontal rules at the top and the bottom of
+your boxes, you can use our meta command:
 
 \begin{verbatim}
-\begin{awesomeblock}[rulecolor]{rulewidth}{icon}{iconcolor}
+\begin{awesomeblock}[rulecolor][hrule]{rulewidth}{icon}{iconcolor}
   your text content
 \end{awesomeblock}
 \end{verbatim}
@@ -373,9 +401,11 @@ Or with a more complex example with minted environment:
 
 \section{Breaking changes}
 
-The version 0.4 of this package introduces a way to customize the rule
-color. Thus, the commands and environments arguments have been
-reorganized to be in a more logical order.
+The version 0.5 of this package introduces a way to customize the rule
+color, and allows you to specify whether and what kind of horizontal
+rules you want at the top and the bottom of your boxes. Thus, the
+commands and environments arguments have been reorganized to be in a
+more logical order.
 
 Historically, the \verb!\awesomebox! command used the following syntax:
 
@@ -383,13 +413,13 @@ Historically, the \verb!\awesomebox! command used the following syntax:
 \verb!\awesomebox{icon}{rulewidth}{iconcolor}{your text content}!
 \end{center}
 
-This syntax will now leads to compiling errors, as you must now write it
-as the following example show you (and as explained in the Section
+This syntax now leads to compiling errors, as you must now write it
+as the following example shows you (and as explained in the Section
 \ref{sec:howtoown} "\nameref{sec:howtoown}"), to avoid an alternate
 declaration of rule and icon options:
 
 \begin{center}
-\verb!\awesomebox[rulecolor]{rulewidth}{icon}{iconcolor}{your text content}!
+\verb!\awesomebox[rulecolor][hrule]{rulewidth}{icon}{iconcolor}{your text content}!
 \end{center}
 
 If you only use the provided boxes and environments (the

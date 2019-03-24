@@ -1,5 +1,5 @@
 #+title: Awesome Boxes
-#+date: <2018-02-10 sam.>
+#+date: <2019-03-24 sam.>
 
 Awesome Boxes is all about drawing admonition blocks around text to
 inform or alert your readers about something particular. The specific
@@ -19,6 +19,7 @@ included in your LaTeX distribution):
 - ~fontawesome5~
 - ~xcolor~
 - ~array~
+- ~xparse~
 
 * Installation
 

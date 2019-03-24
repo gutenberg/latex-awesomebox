@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{awesomebox}[2018/11/26 v0.4]
+\ProvidesPackage{awesomebox}[2019/03/24 v0.5]
 
 % Awesome Box has been written by Étienne Deparis and is released under
 % the WTFPL (http://www.wtfpl.net/txt/copying/).
@@ -13,10 +13,9 @@
 % * Fontawesome5 compatibility
 % Gilbert Fuerer
 % * Custom rule color
+% Georger Araújo
+% * Horizontal rules at top and bottom
 
-
-% Try to just depend on fontawesome5 package
-% https://ctan.org/pkg/fontawesome5
 \RequirePackage{fontawesome5}
 
 % Compatibility with old version of this package
@@ -55,13 +54,19 @@
 
 \RequirePackage{array}
 
+% To allow for more than one optional argument
+\RequirePackage{xparse}
+% Horizontal rule definitions used with second optional argument [hrule]
+\def\abCline{\cline{2-2}}
+\def\abHline{\hline}
+
 % Commands API
-% \awesomebox[rulecolor]{rulewidth}{icon}{iconcolor}{content}
-\newcommand{\awesomebox}[5][abvrulecolor]{%
+% \awesomebox[rulecolor][hrule]{rulewidth}{icon}{iconcolor}{content}
+\NewDocumentCommand \awesomebox { O{abvrulecolor} O{} m m m +m }{%
   \vspace{\aweboxvskip}\noindent
   \begin{tabular}%
-    {p{\aweboxleftmargin}!{\color{#1}\vrule width #2}p{\aweboxcontentwidth}}
-    \raisebox{\aweboxsignraise}{\textcolor{#4}{\Huge#3}} & #5
+    {p{\aweboxleftmargin}!{\color{#1}\vrule width #3}p{\aweboxcontentwidth}}
+    #2 \raisebox{\aweboxsignraise}{\textcolor{#5}{\Huge#4}} & #6 \\ #2
   \end{tabular}
   \vspace{\aweboxvskip}}
 
@@ -81,15 +86,15 @@
   \awesomebox[abimportant]{\aweboxrulewidth}{\abIconExclamationCircle}{abimportant}{#1}}
 
 % Environments API
-% \begin{awesomeblock}[rulecolor]{rulewidth}{icon}{iconcolor}
+% \begin{awesomeblock}[rulecolor][hrule]{rulewidth}{icon}{iconcolor}
 %   content
 % \end{awesomeblock}
-\newenvironment{awesomeblock}[4][abvrulecolor]%
+\NewDocumentEnvironment{awesomeblock}{ O{abvrulecolor} O{} m m m }
 {\vspace{\aweboxvskip}\noindent
   \begin{tabular}%
-    {p{\aweboxleftmargin}!{\color{#1}\vrule width #2}p{\aweboxcontentwidth}}
-    \raisebox{\aweboxsignraise}{\textcolor{#4}{\Huge#3}} & }
-{\end{tabular}\vspace{\aweboxvskip}}
+    {p{\aweboxleftmargin}!{\color{#1}\vrule width #3}p{\aweboxcontentwidth}}
+    #2 \raisebox{\aweboxsignraise}{\textcolor{#5}{\Huge#4}} & }
+{\\ #2 \end{tabular}\vspace{\aweboxvskip}}
 
 \newenvironment{noteblock}%
 {\begin{awesomeblock}[abnote]{\aweboxrulewidth}{\abIconInfoCircle}{abnote}}
@@ -110,4 +115,5 @@
 \newenvironment{importantblock}%
 {\begin{awesomeblock}[abimportant]{\aweboxrulewidth}{\abIconExclamationCircle}{abimportant}}
   {\end{awesomeblock}}
+
 \endinput
