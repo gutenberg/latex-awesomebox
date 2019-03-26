@@ -1,5 +1,5 @@
 #+title: Awesome Boxes
-#+date: <2019-03-24 sam.>
+#+date: <2019-03-25 sam.>
 
 Awesome Boxes is all about drawing admonition blocks around text to
 inform or alert your readers about something particular. The specific
