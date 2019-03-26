@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{awesomebox}[2019/03/24 v0.5]
+\ProvidesPackage{awesomebox}[2019/03/25 v0.5]
 
 % Awesome Box has been written by Étienne Deparis and is released under
 % the WTFPL (http://www.wtfpl.net/txt/copying/).
@@ -12,7 +12,7 @@
 % v0.4: Marcel Krüger https://github.com/zauguin
 % * Fontawesome5 compatibility
 % Gilbert Fuerer
-% * Custom rule color
+% * Custom vertical rule color
 % Georger Araújo
 % * Horizontal rules at top and bottom, title
 
@@ -61,7 +61,7 @@
 \def\abHline{\hline}
 
 % Commands API
-% \awesomebox[rulecolor][hrule][title]{rulewidth}{icon}{iconcolor}{content}
+% \awesomebox[vrulecolor][hrule][title]{vrulewidth}{icon}{iconcolor}{content}
 \NewDocumentCommand \awesomebox { O{abvrulecolor} O{} o m m m +m }{%
   \vspace{\aweboxvskip}\noindent
   \begin{tabular}%
@@ -88,7 +88,7 @@
   \awesomebox[abimportant]{\aweboxrulewidth}{\abIconExclamationCircle}{abimportant}{#1}}
 
 % Environments API
-% \begin{awesomeblock}[rulecolor][hrule][title]{rulewidth}{icon}{iconcolor}
+% \begin{awesomeblock}[vrulecolor][hrule][title]{vrulewidth}{icon}{iconcolor}
 %   content
 % \end{awesomeblock}
 \NewDocumentEnvironment{awesomeblock}{ O{abvrulecolor} O{} o m m m }

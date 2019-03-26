@@ -52,7 +52,7 @@
 
 \title{Awesome Boxes}
 \author{Étienne Deparis}
-\date{2019-03-24 v0.5}
+\date{2019-03-25 v0.5}
 
 \begin{document}
 
@@ -146,7 +146,7 @@ The provided boxes follow the name convention of the
 \label{sec:environments}
 
 You can also insert admonition blocks with an environment syntax. The
-same names can be used, but with a \emph{block} suffixe.
+same names can be used, but with a \emph{block} suffix.
 
 \begin{verbatim}
 \begin{noteblock}
@@ -182,12 +182,13 @@ For example, if you want to add the \emph{rocket} icon
 \label{sec:howtoown}
 \subsection{Inline boxes}
 
-To create your own box, with your own colour, your own icon, your own
-rule width, your own horizontal rules at the top and the bottom of
-your boxes, or a title, you can use our meta command:
+To create your own box, with your own icon and colour, your own
+vertical rule width and colour, your own horizontal rules at the top
+and the bottom of your boxes, or a title, you can use our meta
+command:
 
 \begin{center}
-\verb!\awesomebox[rulecolor][hrule][title]{rulewidth}{icon}{iconcolor}{your text content}!
+\verb!\awesomebox[vrulecolor][hrule][title]{vrulewidth}{icon}{iconcolor}{your text content}!
 \end{center}
 
 Here are some examples of custom boxes:
@@ -255,12 +256,13 @@ Here are some examples of custom boxes:
 
 \subsection{Environments}
 
-To create your own box, with your own colour, your own icon, your own
-rule width, your own horizontal rules at the top and the bottom of
-your boxes, or a title, you can use our meta command:
+To create your own box, with your own icon and colour, your own
+vertical rule width and colour, your own horizontal rules at the top
+and the bottom of your boxes, or a title, you can use our meta
+command:
 
 \begin{verbatim}
-\begin{awesomeblock}[rulecolor][hrule][title]{rulewidth}{icon}{iconcolor}
+\begin{awesomeblock}[vrulecolor][hrule][title]{vrulewidth}{icon}{iconcolor}
   your text content
 \end{awesomeblock}
 \end{verbatim}
@@ -316,16 +318,16 @@ This length is used to raise (or lower) the left icon. Its default value
 is -5mm and you can change it with:
 \verb!\setlength{\aweboxsignraise}{-5mm}!.
 
-\subsection{Rule width}
+\subsection{Vertical rule width}
 
 This width is used for the vertical rule of our four default boxes. Its
 default value is 2pt and you can change it with:
 \verb!\setlength{\aweboxrulewidth}{2pt}!.
 
-\subsection{Rule default color}
+\subsection{Vertical rule default color}
 
-The rule color is an optional argument passed to the commands or
-environments. Its default value is the following (to match the one
+The vertical rule color is an optional argument passed to the commands
+or environments. Its default value is the following (to match the one
 defined by AsciiDoctor) and you can change it this way:
 
 \verb!\definecolor{abvrulecolor}{RGB}{221,221,216}!
@@ -400,10 +402,10 @@ Or with a more complex example with minted environment:
 \section{Breaking changes}
 
 Version 0.5 of this package introduces options to customize the
-rule color, to specify whether and what kind of horizontal rules you
-want at the top and the bottom of your boxes, and to add a title.
-Thus, the commands and environments arguments have been reorganized
-to be in a more logical order.
+vertical rule color, to specify whether and what kind of horizontal
+rules you want at the top and the bottom of your boxes, and to add
+a title. Thus, the commands and environments arguments have been
+reorganized to be in a more logical order.
 
 Historically, the \verb!\awesomebox! command used the following syntax:
 
@@ -417,7 +419,7 @@ as the following example shows you (and as explained in the Section
 declaration of rule and icon options:
 
 \begin{center}
-\verb!\awesomebox[rulecolor][hrule][title]{rulewidth}{icon}{iconcolor}{your text content}!
+\verb!\awesomebox[vrulecolor][hrule][title]{vrulewidth}{icon}{iconcolor}{your text content}!
 \end{center}
 
 If you only use the provided boxes and environments (the
