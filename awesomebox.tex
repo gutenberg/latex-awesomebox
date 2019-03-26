@@ -400,10 +400,8 @@ Or with a more complex example with minted environment:
 
 \section{Breaking changes}
 
-Version 0.5 of this package introduces options to customize the
-vertical rule color, to specify whether and what kind of horizontal
-rules you want at the top and the bottom of your boxes, and to add
-a title. Thus, the commands and environments arguments have been
+Version 0.4 of this package introduced a way to customize the rule
+color. Thus, the commands and environments arguments have been
 reorganized to be in a more logical order.
 
 Historically, the \verb!\awesomebox! command used the following syntax:
@@ -418,7 +416,7 @@ as the following example shows you (and as explained in the Section
 declaration of rule and icon options:
 
 \begin{center}
-\verb!\awesomebox[vrulecolor][hrule][title]{vrulewidth}{icon}{iconcolor}{your text content}!
+\verb!\awesomebox[rulecolor]{rulewidth}{icon}{iconcolor}{your text content}!
 \end{center}
 
 If you only use the provided boxes and environments (the
