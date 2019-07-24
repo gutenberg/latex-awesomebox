@@ -11,19 +11,19 @@ build: README.md $(BASENAME).pdf
 ctan: build
 	mkdir $(BASENAME)
 	mv README.md $(BASENAME)/
-	cp $(BASENAME).pdf $(BASENAME).tex $(BASENAME).sty LICENSE $(BASENAME)/
+	cp $(addprefix $(BASENAME), .pdf .tex .sty) LICENSE $(BASENAME)/
 	zip -r $(BASENAME).zip $(BASENAME)
 
 README.md: README.org
 	pandoc -o README.md README.org
 
 $(BASENAME).pdf:
-	xelatex -halt-on-error -shell-escape "$(BASENAME).tex"
+	xelatex -interaction batchmode -halt-on-error -shell-escape "$(BASENAME).tex"
 	xelatex -interaction batchmode -halt-on-error -shell-escape "$(BASENAME).tex"
 
 clean:
 	rm -rf $(BASENAME) _minted-$(BASENAME)
-	rm -f README.md $(BASENAME).zip $(BASENAME).aux $(BASENAME).log $(BASENAME).out
+	rm -f README.md $(addprefix $(BASENAME), .aux .log .out .zip)
 
 distclean: clean
 	rm $(BASENAME).pdf
