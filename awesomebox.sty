@@ -42,10 +42,11 @@
 \definecolor{abimportant}{RGB}{188,0,0}
 \definecolor{abvrulecolor}{RGB}{221,221,216}
 
-\newlength{\aweboxleftmargin}
-\setlength{\aweboxleftmargin}{0.08\linewidth}
-\newlength{\aweboxcontentwidth}
-\setlength{\aweboxcontentwidth}{0.92\linewidth}
+% The two following length are not really latex dimension, because they
+% will be multiplicated in place by \linewidth
+\def\aweboxleftmargin{0.12}
+\def\aweboxcontentwidth{0.88}
+
 \newlength{\aweboxvskip}
 \setlength{\aweboxvskip}{5mm}
 \newlength{\aweboxsignraise}
@@ -67,7 +68,9 @@
 \NewDocumentCommand \awesomebox { O{abvrulecolor} O{} o m m m +m }{%
   {\vskip \aweboxvskip}\noindent%
   \begin{tabular}%
-    {p{\aweboxleftmargin}!{\color{#1}\vrule width #4}p{\aweboxcontentwidth}}
+    {@{}>{\centering\arraybackslash}%
+    p{\aweboxleftmargin\linewidth}@{}!{\color{#1}\vrule width #4}%
+    p{\dimexpr\aweboxcontentwidth\linewidth-#4-\tabcolsep}@{}}
     \IfValueTF {#3}
       { & #3 \\ #2 \raisebox{\aweboxsignraise}{\textcolor{#6}{\Huge#5}} & #7 \\ #2}
       {         #2 \raisebox{\aweboxsignraise}{\textcolor{#6}{\Huge#5}} & #7 \\ #2}
@@ -95,7 +98,9 @@
 \NewDocumentEnvironment{awesomeblock}{ O{abvrulecolor} O{} o m m m }
 {{\vskip \aweboxvskip}\noindent%
   \begin{tabular}%
-    {p{\aweboxleftmargin}!{\color{#1}\vrule width #4}p{\aweboxcontentwidth}}
+    {@{}>{\centering\arraybackslash}%
+    p{\aweboxleftmargin\linewidth}@{}!{\color{#1}\vrule width #4}%
+    p{\dimexpr\aweboxcontentwidth\linewidth-#4-\tabcolsep}@{}}
     \IfValueTF {#3}
       { & #3 \\ #2 \raisebox{\aweboxsignraise}{\textcolor{#6}{\Huge#5}} &}
       {         #2 \raisebox{\aweboxsignraise}{\textcolor{#6}{\Huge#5}} &}}

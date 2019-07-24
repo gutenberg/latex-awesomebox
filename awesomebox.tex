@@ -300,19 +300,23 @@ Which will render this way:
 Some internal options can be customized, in order to globally modify
 your awesome boxes (either the default ones or your new ones).
 
-\subsection{Left margin}
+\subsection{Left margin ratio}
+\label{sec:leftmargin}
 
-The left margin is the space left before the vertical rule to display
-the icon. You can change it with the following command
-(\verb!0.08\linewidth! is the default one):\\
-\verb!\setlength{\aweboxleftmargin}{0.08\linewidth}!.
+The left margin ratio is the value used to compute the space left before
+the vertical rule to display the icon. The calculation is made by
+multiplicating it with \verb!\linewidth!. You can change it with
+the following command (0.12 is the default value): \\
+\verb!\def\aweboxleftmargin{0.12}!.
 
-\subsection{Content width}
+\subsection{Content width ratio}
+\label{sec:contentwidth}
 
-The content width is the space used to insert the body of your
-admonition block. You can change it with the following command
-(\verb!0.92\linewidth! is the default one):\\
-\verb!\setlength{\aweboxcontentwidth}{0.92\linewidth}!.
+The content width ratio is the value used to compute the space, where
+the body of your admonition block will be inserted. The calculation is
+made by multiplicating it with \verb!\linewidth!. You can change it with
+the following command (0.88 is the default value):
+\verb!\def\aweboxcontentwidth{0.88}!.
 
 \subsection{Vertical skip}
 
@@ -410,9 +414,34 @@ Or with a more complex example with minted environment:
 
 \section{Breaking changes}
 
-Version 0.4 of this package introduced a way to customize the rule
-color. Thus, the commands and environments arguments have been
-reorganized to be in a more logical order.
+\subsection{Version 0.6}
+
+This version improved a lot block components rendering. Historically,
+awesome box used fixed length to display icon and content. This leads
+to admonition block to overflow or be thiner than paragraphs around.
+
+We now expose only length ratios, which will be multiplicated by
+\verb!\linewidth! at runtime.
+
+So, if you customized \verb!\aweboxleftmargin! or
+\verb!\aweboxcontentwidth!, you must change them. See the sections
+\ref{sec:leftmargin} "\nameref{sec:leftmargin}" and
+\ref{sec:contentwidth} "\nameref{sec:contentwidth}" to know more about
+them. If you never touch that, you don't have anything to do.
+
+For example, if you did something like
+\verb!\setlength{\aweboxleftmargin}{0.08\linewidth}!, all you have to do
+now is to change it to \verb!\def\aweboxleftmargin{0.08}!.
+
+Please note that we change default numbers in purpose. It used to be
+0.08 for the margin and 0.92 for the content. It is now 0.12 for the
+margin and 0.88 for the content.
+
+\subsection{Version 0.4}
+
+This version introduced a way to customize the rule color. Thus, the
+commands and environments arguments have been reorganized to be in a
+more logical order.
 
 Historically, the \verb!\awesomebox! command used the following syntax:
 
