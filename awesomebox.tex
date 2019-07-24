@@ -19,7 +19,14 @@
 %\usepackage[T1]{fontenc}
 %\usepackage[english,frenchb]{babel}
 
-\usepackage[vmargin=2cm,hmargin=3cm,includeheadfoot=true]{geometry}
+\usepackage{geometry}
+\geometry{
+  xetex,
+  vmargin=2cm,
+  hmargin=3cm,
+  includeheadfoot,
+  nomarginpar
+}
 \linespread{1.2}
 
 \newcommand{\cf}[1]{(\emph{cf.} section \ref{#1}, %
@@ -38,6 +45,10 @@
   \end{center}
 }
 
+\title{Awesome Boxes}
+\author{Étienne Deparis}
+\date{2019-07-27 v0.6}
+
 % configuration de la transformation en PDF
 \usepackage[pdfusetitle]{hyperref}
 \hypersetup{
@@ -49,10 +60,6 @@
   pdfproducer=XeLaTeX}
 
 \newcommand\hrefcolor[2]{\textcolor{magenta}{\href{#1}{#2}}}
-
-\title{Awesome Boxes}
-\author{Étienne Deparis}
-\date{2019-04-04 v0.5}
 
 \begin{document}
 
@@ -154,7 +161,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
 aliquet libero quis lectus elementum fermentum.
 \end{noteblock}
 \end{verbatim}
-
 
 For the exactly same rendering:
 
@@ -291,8 +297,8 @@ Which will render this way:
 
 \section{Other options}
 
-Finally, you can also modify some internal options in order to modify
-globally your awesome boxes (either the default ones or your new ones).
+Some internal options can be customized, in order to globally modify
+your awesome boxes (either the default ones or your new ones).
 
 \subsection{Left margin}
 
@@ -413,7 +419,7 @@ Historically, the \verb!\awesomebox! command used the following syntax:
 \end{center}
 
 This syntax now leads to compiling errors, as you must now write it
-as the following example shows you (and as explained in the Section
+as the following example shows you (and as explained in the section
 \ref{sec:howtoown} "\nameref{sec:howtoown}"), to avoid an alternate
 declaration of rule and icon options:
 
