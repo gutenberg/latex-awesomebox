@@ -211,6 +211,8 @@ Here are some examples of custom boxes:
   dictum felis. Pellentesque tortor lacus, semper et neque vitae,
   egestas commodo nisl.}
 
+\clearpage
+
 \begin{center}
 \verb!\awesomebox{0pt}{\faCogs}{black}{Lorem ipsum…}!
 \end{center}
@@ -246,8 +248,6 @@ Here are some examples of custom boxes:
   Fusce aliquet augue sapien, non efficitur mi ornare sed. Morbi at
   dictum felis. Pellentesque tortor lacus, semper et neque vitae,
   egestas commodo nisl.}
-
-\clearpage
 
 \begin{center}
 \verb!\awesomebox[white][\abLongLine][\textbf{Watch out}]{0pt}{\faBomb}{black}{Lorem ipsum…}!
@@ -346,7 +346,7 @@ Awesome boxes may be used in any other environments, like in a list.
 \begin{verbatim}
 \begin{itemize}
 \item My first item
-\item My second item with \notebox{A note box!}
+\item Lorem ipsum… \notebox{Fusce aliquet…}
 \item Last and finally
 \end{itemize}
 \end{verbatim}
@@ -355,7 +355,11 @@ will give:
 
 \begin{itemize}
 \item My first item
-\item My second item with \notebox{A note box!}
+\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+  aliquet libero quis lectus elementum fermentum. \notebox{Fusce aliquet
+    augue sapien, non efficitur mi ornare sed. Morbi at dictum
+    felis. Pellentesque tortor lacus, semper et neque vitae, egestas
+    commodo nisl.}
 \item Last and finally
 \end{itemize}
 
@@ -376,11 +380,9 @@ will give:
 
 \begin{importantblock}
   \begin{itemize}
-  \vspace{-5mm}
   \item My first item
   \item My second item with \notebox{A note box!}
   \item Last and finally
-  \vspace{-5mm}
   \end{itemize}
 \end{importantblock}
 

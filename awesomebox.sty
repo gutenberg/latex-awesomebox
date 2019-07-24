@@ -65,14 +65,13 @@
 % Commands API
 % \awesomebox[vrulecolor][hrule][title]{vrulewidth}{icon}{iconcolor}{content}
 \NewDocumentCommand \awesomebox { O{abvrulecolor} O{} o m m m +m }{%
-  \vspace{\aweboxvskip}\noindent
+  {\vskip \aweboxvskip}\noindent%
   \begin{tabular}%
     {p{\aweboxleftmargin}!{\color{#1}\vrule width #4}p{\aweboxcontentwidth}}
     \IfValueTF {#3}
       { & #3 \\ #2 \raisebox{\aweboxsignraise}{\textcolor{#6}{\Huge#5}} & #7 \\ #2}
       {         #2 \raisebox{\aweboxsignraise}{\textcolor{#6}{\Huge#5}} & #7 \\ #2}
-  \end{tabular}
-  \vspace{\aweboxvskip}}
+  \end{tabular}{\vskip \aweboxvskip}}
 
 \newcommand{\notebox}[1]{%
   \awesomebox[abnote]{\aweboxrulewidth}{\abIconInfoCircle}{abnote}{#1}}
@@ -94,13 +93,13 @@
 %   content
 % \end{awesomeblock}
 \NewDocumentEnvironment{awesomeblock}{ O{abvrulecolor} O{} o m m m }
-{\vspace{\aweboxvskip}\noindent
+{{\vskip \aweboxvskip}\noindent%
   \begin{tabular}%
     {p{\aweboxleftmargin}!{\color{#1}\vrule width #4}p{\aweboxcontentwidth}}
     \IfValueTF {#3}
       { & #3 \\ #2 \raisebox{\aweboxsignraise}{\textcolor{#6}{\Huge#5}} &}
       {         #2 \raisebox{\aweboxsignraise}{\textcolor{#6}{\Huge#5}} &}}
-{\\ #2 \end{tabular}\vspace{\aweboxvskip}}
+{\\ #2 \end{tabular}{\vskip \aweboxvskip}}
 
 \newenvironment{noteblock}%
 {\begin{awesomeblock}[abnote]{\aweboxrulewidth}{\abIconInfoCircle}{abnote}}
