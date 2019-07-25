@@ -44,17 +44,19 @@
 \definecolor{abimportant}{RGB}{188,0,0}
 \definecolor{abvrulecolor}{RGB}{221,221,216}
 
-% The two following length are not really latex dimension, because they
-% will be multiplicated in place by \linewidth
-\def\aweboxleftmargin{0.12}
-\def\aweboxcontentwidth{0.88}
-
+% Customizable length
+\newlength{\aweboxleftmargin}
+\newlength{\aweboxcontentwidth}
 \newlength{\aweboxvskip}
 \setlength{\aweboxvskip}{5mm}
 \newlength{\aweboxsignraise}
 \setlength{\aweboxsignraise}{-5mm}
 \newlength{\aweboxrulewidth}
 \setlength{\aweboxrulewidth}{2pt}
+
+\AtBeginDocument{%
+  \setlength{\aweboxleftmargin}{0.12\linewidth}%
+  \setlength{\aweboxcontentwidth}{0.88\linewidth}}
 
 \RequirePackage{array}
 
@@ -65,18 +67,35 @@
 \def\abShortLine{\cline{2-2}}
 \def\abLongLine{\hline}
 
+% The following commands are used to adjust and restore awesome boxes
+% content width in respect to the current environment (e.g. lists).
+\RequirePackage{ifthen}
+\newlength{\aweboxlinewidthvar}
+\setlength{\aweboxlinewidthvar}{0pt}
+\newlength{\aweboxlinewidthref}
+\AtBeginDocument{\setlength{\aweboxlinewidthref}{\linewidth}}
+\newcommand{\awesomeboxadjustcontentwidth}{%
+  \ifthenelse{\lengthtest{\linewidth=\aweboxlinewidthref}}{}{%
+    \setlength{\aweboxlinewidthvar}{\dimexpr\aweboxlinewidthref-\linewidth}
+    \setlength{\aweboxcontentwidth}{\dimexpr\aweboxcontentwidth-\aweboxlinewidthvar}}
+}
+\newcommand{\awesomeboxrestorecontentwidth}{%
+  \ifthenelse{\lengthtest{\linewidth=\textwidth}}{}{%
+    \setlength{\aweboxcontentwidth}{\dimexpr\aweboxcontentwidth+\aweboxlinewidthvar}
+    \setlength{\aweboxlinewidthvar}{0pt}}}
+
 % Commands API
 % \awesomebox[vrulecolor][hrule][title]{vrulewidth}{icon}{iconcolor}{content}
 \NewDocumentCommand \awesomebox { O{abvrulecolor} O{} o m m m +m }{%
-  {\vskip \aweboxvskip}\noindent%
+  {\vskip \aweboxvskip}\noindent\awesomeboxadjustcontentwidth%
   \begin{tabular}%
     {@{}>{\centering\arraybackslash}%
-    p{\aweboxleftmargin\linewidth}@{}!{\color{#1}\vrule width #4}%
-    p{\dimexpr\aweboxcontentwidth\linewidth-#4-\tabcolsep}@{}}
+    p{\aweboxleftmargin}@{}!{\color{#1}\vrule width #4}%
+    p{\dimexpr\aweboxcontentwidth-#4-\tabcolsep}@{}}
     \IfValueTF {#3}
       { & #3 \\ #2 \raisebox{\aweboxsignraise}{\textcolor{#6}{\Huge#5}} & #7 \\ #2}
       {         #2 \raisebox{\aweboxsignraise}{\textcolor{#6}{\Huge#5}} & #7 \\ #2}
-  \end{tabular}{\vskip \aweboxvskip}}
+  \end{tabular}{\vskip \aweboxvskip}\awesomeboxrestorecontentwidth}
 
 \newcommand{\notebox}[1]{%
   \awesomebox[abnote]{\aweboxrulewidth}{\abIconInfoCircle}{abnote}{#1}}
@@ -98,15 +117,15 @@
 %   content
 % \end{awesomeblock}
 \NewDocumentEnvironment{awesomeblock}{ O{abvrulecolor} O{} o m m m }
-{{\vskip \aweboxvskip}\noindent%
+{{\vskip \aweboxvskip}\noindent\awesomeboxadjustcontentwidth%
   \begin{tabular}%
     {@{}>{\centering\arraybackslash}%
-    p{\aweboxleftmargin\linewidth}@{}!{\color{#1}\vrule width #4}%
-    p{\dimexpr\aweboxcontentwidth\linewidth-#4-\tabcolsep}@{}}
+    p{\aweboxleftmargin}@{}!{\color{#1}\vrule width #4}%
+    p{\dimexpr\aweboxcontentwidth-#4-\tabcolsep}@{}}
     \IfValueTF {#3}
       { & #3 \\ #2 \raisebox{\aweboxsignraise}{\textcolor{#6}{\Huge#5}} &}
       {         #2 \raisebox{\aweboxsignraise}{\textcolor{#6}{\Huge#5}} &}}
-{\\ #2 \end{tabular}{\vskip \aweboxvskip}}
+{\\ #2 \end{tabular}{\vskip \aweboxvskip}\awesomeboxrestorecontentwidth}
 
 \newenvironment{noteblock}%
 {\begin{awesomeblock}[abnote]{\aweboxrulewidth}{\abIconInfoCircle}{abnote}}

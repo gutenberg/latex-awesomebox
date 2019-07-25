@@ -36,7 +36,7 @@
 \newcommand{\colophon}{
   ~\vfill
   \begin{center}
-    \scriptsize Prepared with \faHeart{} from Nantes,
+    \scriptsize Handcrafted with \faHeart{} from Nantes,
     France\\
     Awesome Box is released under the
     \hrefcolor{http://www.wtfpl.net/txt/copying/}{WTFPL}. A copy of this
@@ -300,28 +300,35 @@ Which will render this way:
 Some internal options can be customized, in order to globally modify
 your awesome boxes (either the default ones or your new ones).
 
-\subsection{Left margin ratio}
-\label{sec:leftmargin}
+\subsection{Left margin}
 
-The left margin ratio is the value used to compute the space left before
-the vertical rule to display the icon. The calculation is made by
-multiplicating it with \verb!\linewidth!. You can change it with
-the following command (0.12 is the default value): \\
-\verb!\def\aweboxleftmargin{0.12}!.
+The left margin is the space left to display the icon before the
+vertical rule. You can change it with the following command
+(\verb!0.12\linewidth! is the default one):\\
+\verb!\setlength{\aweboxleftmargin}{0.12\linewidth}!.
 
-\subsection{Content width ratio}
-\label{sec:contentwidth}
+You must declare you new length \emph{after} the \verb!\begin{document}!
+instruction, or your custom length will be overriden by the default
+one.
 
-The content width ratio is the value used to compute the space, where
-the body of your admonition block will be inserted. The calculation is
-made by multiplicating it with \verb!\linewidth!. You can change it with
-the following command (0.88 is the default value):
-\verb!\def\aweboxcontentwidth{0.88}!.
+\subsection{Content width}
+
+The content width is the space used to insert the body of your
+admonition block. You can change it with the following command
+(\verb!0.88\linewidth! is the default one):\\
+\verb!\setlength{\aweboxcontentwidth}{0.88\linewidth}!.
+
+You must declare you new length \emph{after} the \verb!\begin{document}!
+instruction, or your custom length will be overriden by the default
+one.
 
 \subsection{Vertical skip}
 
 This space is used before and after the awesome box. You can change it
 with (5mm is the default): \verb!\setlength{\aweboxvskip}{5mm}!.
+
+You can put your new length either in the header or in the body of your
+document.
 
 \subsection{Sign raise}
 
@@ -329,11 +336,17 @@ This length is used to raise (or lower) the left icon. Its default value
 is -5mm and you can change it with:
 \verb!\setlength{\aweboxsignraise}{-5mm}!.
 
+You can put your new length either in the header or in the body of your
+document.
+
 \subsection{Vertical rule width}
 
 This width is used for the vertical rule of our four default boxes. Its
 default value is 2pt and you can change it with:
 \verb!\setlength{\aweboxrulewidth}{2pt}!.
+
+You can put your new length either in the header or in the body of your
+document.
 
 \subsection{Vertical rule default color}
 
@@ -390,8 +403,6 @@ will give:
   \end{itemize}
 \end{importantblock}
 
-\clearpage
-
 Or with a more complex example with minted environment:
 
 \begin{verbatim}
@@ -418,24 +429,18 @@ Or with a more complex example with minted environment:
 
 This version improved a lot block components rendering. Historically,
 awesome box used fixed length to display icon and content. This leads
-to admonition block to overflow or be thiner than paragraphs around.
+to admonition block to overflow or to be thiner than paragraphs around.
 
-We now expose only length ratios, which will be multiplicated by
-\verb!\linewidth! at runtime.
+Please note that we change default block components width in purpose. It
+used to be \verb!0.08\linewidth! for the margin and
+\verb!0.92\linewidth! for the content. It is now \verb!0.12\linewidth!
+for the margin and \verb!0.88\linewidth! for the content.
 
-So, if you customized \verb!\aweboxleftmargin! or
-\verb!\aweboxcontentwidth!, you must change them. See the sections
-\ref{sec:leftmargin} "\nameref{sec:leftmargin}" and
-\ref{sec:contentwidth} "\nameref{sec:contentwidth}" to know more about
-them. If you never touch that, you don't have anything to do.
-
-For example, if you did something like
-\verb!\setlength{\aweboxleftmargin}{0.08\linewidth}!, all you have to do
-now is to change it to \verb!\def\aweboxleftmargin{0.08}!.
-
-Please note that we change default numbers in purpose. It used to be
-0.08 for the margin and 0.92 for the content. It is now 0.12 for the
-margin and 0.88 for the content.
+We now compute the default \verb!\aweboxleftmargin! and
+\verb!\aweboxcontentwidth! value in a \verb!\AtBeginDocument!
+command. Thus you must declare you new lengths \emph{after} the
+\verb!\begin{document}! instruction, or your custom lengths will be
+overriden by the default one.
 
 \subsection{Version 0.4}
 
