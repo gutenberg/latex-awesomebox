@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{mwe}
+
+\usepackage{awesomebox}
+
+\usepackage{geometry}
+\geometry{
+  xetex,
+  vmargin=2cm,
+  hmargin=3cm,
+  includeheadfoot,
+  nomarginpar
+}
+
+\usepackage{multicol}
+
+\begin{document}
+
+\lipsum[1][1-3]
+\notebox{\the\linewidth\ \the\textwidth\ \the\aweboxlinewidthvar\
+  \the\aweboxleftmargin\ \the\aweboxcontentwidth\ \lipsum[1][3-6]}
+\lipsum[1][6-9]
+
+\begin{itemize}
+\item \lipsum[2][1-3]
+\item \lipsum[2][3-6]\notebox{\the\linewidth\ \the\textwidth\
+    \the\aweboxlinewidthvar\ \the\aweboxleftmargin\
+    \the\aweboxcontentwidth\ \lipsum[2][6-9]}
+\item \lipsum[2][9-12]
+\end{itemize}
+
+\lipsum[3][1-3]
+\notebox{\the\linewidth\ \the\textwidth\ \the\aweboxlinewidthvar\
+  \the\aweboxleftmargin\ \the\aweboxcontentwidth\ \lipsum[3][3-6]}
+\lipsum[3][6-9]
+
+\begin{figure}
+  \centering
+  \fbox{
+    \begin{minipage}{0.4\linewidth}
+      \lipsum[1][1-3]
+      \notebox{\the\linewidth\ \the\textwidth\ \the\aweboxlinewidthvar\
+        \the\aweboxleftmargin\ \the\aweboxcontentwidth\ \lipsum[1][3-6]}
+    \end{minipage}}
+  \caption{Minipage example}
+  \label{fig:minipageex}
+\end{figure}
+
+\clearpage
+
+\begin{multicols}{2}
+  \section{Multiple column example}
+  \lipsum[1]
+  \notebox{\lipsum[2][1-3]\\
+    & \the\linewidth\ \the\textwidth\\
+    & \the\aweboxlinewidthvar\ \the\aweboxleftmargin\\
+    & \the\aweboxcontentwidth}
+  \lipsum[3-7]
+\end{multicols}
+
+\end{document}

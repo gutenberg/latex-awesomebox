@@ -23,7 +23,7 @@ $(BASENAME).pdf:
 
 clean:
 	rm -rf $(BASENAME) _minted-$(BASENAME)
-	rm -f README.md $(addprefix $(BASENAME), .aux .log .out .zip)
+	rm -f README.md $(addprefix $(BASENAME), .aux .log .out .zip) $(addprefix test, .aux .log .pdf)
 
 distclean: clean
 	rm $(BASENAME).pdf
