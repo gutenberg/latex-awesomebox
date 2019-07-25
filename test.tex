@@ -3,18 +3,14 @@
 
 \usepackage{awesomebox}
 
-\usepackage{geometry}
-\geometry{
-  xetex,
-  vmargin=2cm,
-  hmargin=3cm,
-  includeheadfoot,
-  nomarginpar
-}
+%% Comment the following to test without geometry package
+\usepackage[xetex,vmargin=2cm,hmargin=3cm,includeheadfoot,nomarginpar]{geometry}
 
 \usepackage{multicol}
 
 \begin{document}
+
+\section{Automatic width detection in list}
 
 \lipsum[1][1-3]
 \notebox{\the\linewidth\ \the\textwidth\ \the\aweboxlinewidthvar\
@@ -34,7 +30,34 @@
   \the\aweboxleftmargin\ \the\aweboxcontentwidth\ \lipsum[3][3-6]}
 \lipsum[3][6-9]
 
-\begin{figure}
+\section{With custom width declared mid document}
+
+\setlength{\aweboxcontentwidth}{0.4\linewidth}
+
+\lipsum[4][1-3]
+\notebox{\the\linewidth\ \the\textwidth\ \the\aweboxlinewidthvar\
+  \the\aweboxleftmargin\ \the\aweboxcontentwidth\ \lipsum[4][3-6]}
+\lipsum[4][6-9]
+
+\section{After restoration}
+
+\setlength{\aweboxcontentwidth}{0.88\linewidth}
+
+\lipsum[5][1-3]
+\notebox{\the\linewidth\ \the\textwidth\ \the\aweboxlinewidthvar\
+  \the\aweboxleftmargin\ \the\aweboxcontentwidth\ \lipsum[5][3-6]}
+\lipsum[5][6-9]
+
+\section{Minipage examples}
+
+\fbox{
+  \begin{minipage}{0.4\linewidth}
+    \lipsum[1][1]
+    \notebox{\the\linewidth\ \the\textwidth\ \the\aweboxlinewidthvar\
+      \the\aweboxleftmargin\ \the\aweboxcontentwidth\ \lipsum[1][3]}
+  \end{minipage}}
+
+\begin{figure}[h!]
   \centering
   \fbox{
     \begin{minipage}{0.4\linewidth}
@@ -42,7 +65,7 @@
       \notebox{\the\linewidth\ \the\textwidth\ \the\aweboxlinewidthvar\
         \the\aweboxleftmargin\ \the\aweboxcontentwidth\ \lipsum[1][3-6]}
     \end{minipage}}
-  \caption{Minipage example}
+  \caption{Minipage example in a figure}
   \label{fig:minipageex}
 \end{figure}
 
