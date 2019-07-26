@@ -76,13 +76,12 @@
 \AtBeginDocument{\setlength{\aweboxlinewidthref}{\linewidth}}
 \newcommand{\awesomeboxadjustcontentwidth}{%
   \ifthenelse{\lengthtest{\linewidth=\aweboxlinewidthref}}{}{%
-    \setlength{\aweboxlinewidthvar}{\dimexpr\aweboxlinewidthref-\linewidth}
-    \setlength{\aweboxcontentwidth}{\dimexpr\aweboxcontentwidth-\aweboxlinewidthvar}}
-}
+    \setlength{\aweboxlinewidthvar}{\dimexpr\aweboxlinewidthref-\linewidth}%
+    \setlength{\aweboxcontentwidth}{\dimexpr\aweboxcontentwidth-\aweboxlinewidthvar}}}%
     %\aweboxdebug}}
 \newcommand{\awesomeboxrestorecontentwidth}{%
   \ifthenelse{\lengthtest{\linewidth=\textwidth}}{}{%
-    \setlength{\aweboxcontentwidth}{\dimexpr\aweboxcontentwidth+\aweboxlinewidthvar}
+    \setlength{\aweboxcontentwidth}{\dimexpr\aweboxcontentwidth+\aweboxlinewidthvar}%
     \setlength{\aweboxlinewidthvar}{0pt}}}
 
 % Commands API

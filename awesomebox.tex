@@ -194,7 +194,7 @@ and the bottom of your boxes, or a title, you can use our meta
 command:
 
 \begin{center}
-\verb!\awesomebox[vrulecolor][hrule][title]{vrulewidth}{icon}{iconcolor}{your text content}!
+\verb!\awesomebox[vrulecolor][hrule][title]{vrulewidth}{icon}{iconcolor}{content}!
 \end{center}
 
 Here are some examples of custom boxes:
@@ -237,8 +237,9 @@ Here are some examples of custom boxes:
   dictum felis. Pellentesque tortor lacus, semper et neque vitae,
   egestas commodo nisl.}
 
+\vspace{2mm}
 \begin{center}
-\verb!\awesomebox[white][\abShortLine]{0pt}{\faGrinBeam[regular]}{black}{Lorem ipsum…}!
+\small\verb!\awesomebox[white][\abShortLine]{0pt}{\faGrinBeam[regular]}{black}{Lorem ipsum…}!
 \end{center}
 
 \awesomebox[white][\abShortLine]{0pt}{\faGrinBeam[regular]}{black}{%
@@ -249,8 +250,9 @@ Here are some examples of custom boxes:
   dictum felis. Pellentesque tortor lacus, semper et neque vitae,
   egestas commodo nisl.}
 
+\vspace{2mm}
 \begin{center}
-\verb!\awesomebox[white][\abLongLine][\textbf{Watch out}]{0pt}{\faBomb}{black}{Lorem ipsum…}!
+\small\verb!\awesomebox[white][\abLongLine][\textbf{Watch out}]{0pt}{\faBomb}{black}{Lorem…}!
 \end{center}
 
 \awesomebox[white][\abLongLine][\textbf{Watch out}]{0pt}{\faBomb}{black}{%
@@ -428,8 +430,8 @@ Or with a more complex example with minted environment:
 \subsection{Version 0.6}
 
 This version improved a lot block components rendering. Historically,
-awesome box used fixed length to display icon and content. This leads
-to admonition block to overflow or to be thiner than paragraphs around.
+awesome box used fixed length to display icon and content. This leads to
+admonition block to overflow or to be thinner than paragraphs around.
 
 Please note that we change default block components width in purpose. It
 used to be \verb!0.08\linewidth! for the margin and
@@ -438,9 +440,9 @@ for the margin and \verb!0.88\linewidth! for the content.
 
 We now compute the default \verb!\aweboxleftmargin! and
 \verb!\aweboxcontentwidth! value in a \verb!\AtBeginDocument!
-command. Thus you must declare you new lengths \emph{after} the
-\verb!\begin{document}! instruction, or your custom lengths will be
-overriden by the default one.
+command. Thus, to avoid your custom lengths to be overriden by the
+default ones, you must declare them \emph{after} the
+\verb!\begin{document}! instruction.
 
 \subsection{Version 0.4}
 
@@ -464,11 +466,11 @@ declaration of rule and icon options:
 \end{center}
 
 If you only use the provided boxes and environments (the
-\verb!\notebox!, \verb!\tipbox!, \verb!\warningbox!, \verb!\cautionbox!,
-and \verb!\importantbox! or the \texttt{noteblock}, \texttt{tipblock},
-\texttt{cautionblock}, \texttt{warningblock}, \texttt{importantblock}
-environment) you are not affected by this change and your documents will
-work without any change.
+\verb!\notebox!, \verb!\tipbox!, \texttt{\textbackslash warn\-ing\-box},
+\verb!\cautionbox!, \verb!\importantbox! commands or the
+\texttt{noteblock}, \texttt{tipblock}, \texttt{caution\-block},
+\texttt{warningblock}, \texttt{importantblock} environments) you are not
+affected by this change and your documents will work without any change.
 
 \colophon
 
