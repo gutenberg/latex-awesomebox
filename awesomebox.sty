@@ -79,6 +79,7 @@
     \setlength{\aweboxlinewidthvar}{\dimexpr\aweboxlinewidthref-\linewidth}
     \setlength{\aweboxcontentwidth}{\dimexpr\aweboxcontentwidth-\aweboxlinewidthvar}}
 }
+    %\aweboxdebug}}
 \newcommand{\awesomeboxrestorecontentwidth}{%
   \ifthenelse{\lengthtest{\linewidth=\textwidth}}{}{%
     \setlength{\aweboxcontentwidth}{\dimexpr\aweboxcontentwidth+\aweboxlinewidthvar}
@@ -146,5 +147,14 @@
 \newenvironment{importantblock}%
 {\begin{awesomeblock}[abimportant]{\aweboxrulewidth}{\abIconExclamationCircle}{abimportant}}
   {\end{awesomeblock}}
+
+\newcommand{\aweboxdebug}{%
+  \typeout{**************************}%
+  \typeout{Line width: \the\linewidth}%
+  \typeout{Reference line width: \the\aweboxlinewidthref\space(text width: \the\textwidth)}%
+  \typeout{Width difference: \the\aweboxlinewidthvar}%
+  \typeout{Margin width: \the\aweboxleftmargin}%
+  \typeout{Content width: \the\aweboxcontentwidth}%
+  \typeout{**************************}}
 
 \endinput

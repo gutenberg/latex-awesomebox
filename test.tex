@@ -13,30 +13,25 @@
 \section{Automatic width detection in list}
 
 \lipsum[1][1-3]
-\notebox{\the\linewidth\ \the\textwidth\ \the\aweboxlinewidthvar\
-  \the\aweboxleftmargin\ \the\aweboxcontentwidth\ \lipsum[1][3-6]}
+\notebox{\lipsum[1][3-6]}
 \lipsum[1][6-9]
 
 \begin{itemize}
 \item \lipsum[2][1-3]
-\item \lipsum[2][3-6]\notebox{\the\linewidth\ \the\textwidth\
-    \the\aweboxlinewidthvar\ \the\aweboxleftmargin\
-    \the\aweboxcontentwidth\ \lipsum[2][6-9]}
+\item \lipsum[2][3-6]\notebox{\lipsum[2][6-9]}
 \item \lipsum[2][9-12]
 \end{itemize}
 
 \lipsum[3][1-3]
-\notebox{\the\linewidth\ \the\textwidth\ \the\aweboxlinewidthvar\
-  \the\aweboxleftmargin\ \the\aweboxcontentwidth\ \lipsum[3][3-6]}
+\notebox{\lipsum[3][3-6]}
 \lipsum[3][6-9]
 
 \section{With custom width declared mid document}
 
-\setlength{\aweboxcontentwidth}{0.4\linewidth}
+\setlength{\aweboxcontentwidth}{0.45\linewidth}
 
 \lipsum[4][1-3]
-\notebox{\the\linewidth\ \the\textwidth\ \the\aweboxlinewidthvar\
-  \the\aweboxleftmargin\ \the\aweboxcontentwidth\ \lipsum[4][3-6]}
+\notebox{\lipsum[4][3-6]}
 \lipsum[4][6-9]
 
 \section{After restoration}
@@ -44,8 +39,7 @@
 \setlength{\aweboxcontentwidth}{0.88\linewidth}
 
 \lipsum[5][1-3]
-\notebox{\the\linewidth\ \the\textwidth\ \the\aweboxlinewidthvar\
-  \the\aweboxleftmargin\ \the\aweboxcontentwidth\ \lipsum[5][3-6]}
+\notebox{\lipsum[5][3-6]}
 \lipsum[5][6-9]
 
 \section{Minipage examples}
@@ -53,8 +47,7 @@
 \fbox{
   \begin{minipage}{0.4\linewidth}
     \lipsum[1][1]
-    \notebox{\the\linewidth\ \the\textwidth\ \the\aweboxlinewidthvar\
-      \the\aweboxleftmargin\ \the\aweboxcontentwidth\ \lipsum[1][3]}
+    \notebox{\lipsum[1][3]}
   \end{minipage}}
 
 \begin{figure}[h!]
@@ -62,8 +55,7 @@
   \fbox{
     \begin{minipage}{0.4\linewidth}
       \lipsum[1][1-3]
-      \notebox{\the\linewidth\ \the\textwidth\ \the\aweboxlinewidthvar\
-        \the\aweboxleftmargin\ \the\aweboxcontentwidth\ \lipsum[1][3-6]}
+      \notebox{\lipsum[1][3-6]}
     \end{minipage}}
   \caption{Minipage example in a figure}
   \label{fig:minipageex}
@@ -74,10 +66,9 @@
 \begin{multicols}{2}
   \section{Multiple column example}
   \lipsum[1]
-  \notebox{\lipsum[2][1-3]\\
-    & \the\linewidth\ \the\textwidth\\
-    & \the\aweboxlinewidthvar\ \the\aweboxleftmargin\\
-    & \the\aweboxcontentwidth}
+
+  \notebox{\lipsum[2][1-3]}
+
   \lipsum[3-7]
 \end{multicols}
 
