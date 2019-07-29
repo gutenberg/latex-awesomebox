@@ -16,9 +16,10 @@ For more details, please refer to the [[https://github.com/milouse/latex-awesome
 The following LaTeX packages are required (they should be already
 included in your LaTeX distribution):
 
-- ~fontawesome5~
-- ~xcolor~
 - ~array~
+- ~fontawesome5~
+- ~ifthen~
+- ~xcolor~
 - ~xparse~
 
 * Installation
