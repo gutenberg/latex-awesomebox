@@ -30,6 +30,24 @@ document your are composing.
 For system wide installation, please refer to the documentation of your
 LaTeX distribution.
 
+* Compatibility
+
+This repository also hosts the package ~awesomebox-compat~, which
+depends on the ~fontawesome~ package, instead of ~fontawesome5~. Apart
+from that, it has the exact same features set.
+
+This can be usefull for you if you want to use it with an old LaTeX
+distribution, which does not embed ~fontawesome5~ yet (like Overleaf
+system). To use it, download the file ~awesomebox-compat.sty~ in this
+repository, put it near your tex files and just replace your
+~\usepackage{awesomebox}~ instruction by
+~\usepackage{awesomebox-compat}~.
+
+Be aware that icon names changes between FontAwesome and FontAwesome5
+and thus using the compatibility package may break your current
+files. FontAwesome also requires you to use XeLaTeX or LuaTeX: you
+cannot use PDFLaTeX with the compatibility package.
+
 * License
 
 Awesome Box is released under the [[http://www.wtfpl.net/txt/copying/][WTFPL]]. A copy of this license is
