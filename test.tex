@@ -14,6 +14,10 @@
 
 \usepackage{multicol}
 
+% Allow footnotes to escape awesomebox
+\usepackage{footnote}
+\makesavenoteenv{tabular}
+
 \begin{document}
 
 \section{Automatic width detection in list}
@@ -31,6 +35,12 @@
 \lipsum[3][1-3]
 \notebox{\lipsum[3][4-6]}
 \lipsum[3][7-9]
+
+\section{What about footnotes?}
+
+\begin{noteblock}
+I can't get a \verb|\footnote|!\footnote{Can I?}
+\end{noteblock}
 
 \section{With custom width declared mid document}
 

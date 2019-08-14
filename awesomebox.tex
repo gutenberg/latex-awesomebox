@@ -357,7 +357,36 @@ or environments. Its default value is the following (to match the one
 defined by AsciiDoctor) and you can change it this way:
 \verb!\definecolor{abvrulecolor}{RGB}{221,221,216}!.
 
-\section{With other environments}
+\section{In the wild}
+
+\subsection{Compatibility with inline commands}
+
+Awesome boxes are drawn with the help of a \texttt{tabular}
+environment. All the glitches that you may encounter with tables will
+happen with awesomebox too. Good news is, the respective solution work
+too.
+
+For exemple, footnotes are known to behave badly with tables: the
+upraised number will appear, but the footnote definition will never be
+appended at the end of the page. To fix that, either for tables or for
+awesomeboxes, you should follow
+\hrefcolor{https://tex.stackexchange.com/questions/109467/footnote-in-tabular-environment}{this
+  answer on StackOverflow} and use the \texttt{footnote} package
+alongside the command \texttt{\textbackslash
+  make\-save\-note\-env\{tabular\}}.
+
+\begin{verbatim}
+  \documentclass{article}
+  \usepackage{footnote}
+  \makesavenoteenv{tabular}
+  \begin{document}
+  \begin{noteblock}
+    Content\footnote{footnote text}
+  \end{noteblock}
+  \end{document}
+\end{verbatim}
+
+\subsection{Compatibility with other environments}
 
 Awesome boxes may be used in any other environments, like in a list.
 
