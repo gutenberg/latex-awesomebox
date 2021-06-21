@@ -7,7 +7,7 @@ aim of this package is to use [[https://fontawesome.com][FontAwesome 5]] icons t
 illustration of these blocks.
 
 The idea of admonition blocks comes from the ones you can easily do with
-[[http://asciidoctor.org/docs/user-manual/#admonition][AsciiDoc]].
+[[https://docs.asciidoctor.org/asciidoc/latest/blocks/admonitions/][AsciiDoc]].
 
 For more details, please refer to the [[https://github.com/milouse/latex-awesomebox/blob/master/awesomebox.pdf][awesomebox.pdf]] document.
 
@@ -36,7 +36,7 @@ This repository also hosts the package ~awesomebox-compat~, which
 depends on the ~fontawesome~ package, instead of ~fontawesome5~. Apart
 from that, it has the exact same features set.
 
-This can be usefull for you if you want to use it with an old LaTeX
+This can be useful for you if you want to use it with an old LaTeX
 distribution, which does not embed ~fontawesome5~ yet (like Overleaf
 system). To use it, download the file ~awesomebox-compat.sty~ in this
 repository, put it near your tex files and just replace your
