@@ -1,5 +1,4 @@
 #+title: Awesome Boxes
-#+date: <2019-03-25 sam.>
 
 Awesome Boxes is all about drawing admonition blocks around text to
 inform or alert your readers about something particular. The specific
@@ -10,6 +9,12 @@ The idea of admonition blocks comes from the ones you can easily do with
 [[https://docs.asciidoctor.org/asciidoc/latest/blocks/admonitions/][AsciiDoc]].
 
 For more details, please refer to the [[https://github.com/milouse/latex-awesomebox/blob/master/awesomebox.pdf][awesomebox.pdf]] document.
+
+#+html: <a href="https://liberapay.com/milouse/donate"><img alt="Support using Liberapay" src="https://img.shields.io/badge/Liberapay-Support_me-yellow?logo=liberapay"/></a>
+#+html: <a href="https://paypal.me/milouse"><img alt="Support using Paypal" src="https://img.shields.io/badge/Paypal-Support_me-00457C?logo=paypal&labelColor=lightgray"/></a>
+
+If you like my work, you can help me a lot by giving me some tip, either
+through [[https://liberapay.com/milouse][Liberapay]] or [[https://paypal.me/milouse][Paypal]]. Thank you very much!
 
 * Requirements
 
