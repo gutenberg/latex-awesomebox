@@ -1,4 +1,5 @@
 #+title: Awesome Boxes
+#+options: toc:nil
 
 Awesome Boxes is all about drawing admonition blocks around text to
 inform or alert your readers about something particular. The specific

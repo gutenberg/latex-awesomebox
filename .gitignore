@@ -1,5 +1,6 @@
 *.aux
 *.log
 *.out
-README.md
 _minted-awesomebox
+awesomebox
+fonts

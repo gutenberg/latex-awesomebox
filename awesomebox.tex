@@ -4,9 +4,24 @@
 
 \usepackage{xltxtra}
 \defaultfontfeatures{Scale=MatchLowercase}
-\setmonofont[Mapping=tex-text,Scale=0.9]{Inconsolata}
-\setromanfont[Mapping=tex-text]{Linux Libertine O}
-\setsansfont[Mapping=tex-text]{Linux Biolinum O}
+\setmonofont[
+  Path = fonts/,
+  Extension = .otf,
+  Mapping = tex-text,
+  Scale = 0.9]{Inconsolata}
+\setromanfont[
+  Path = fonts/,
+  Extension = .otf,
+  BoldFont = *B,
+  ItalicFont = *I,
+  BoldItalicFont = *BI,
+  Mapping = tex-text]{LinLibertine_R}
+\setsansfont[
+  Path=fonts/,
+  Extension = .otf,
+  BoldFont = *B,
+  ItalicFont = *I,
+  Mapping = tex-text]{LinBiolinum_R}
 
 \usepackage{polyglossia}
 \setdefaultlanguage{english}
