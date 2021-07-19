@@ -1,5 +1,6 @@
 #+title: Awesome Boxes
 #+options: toc:nil
+#+language: en
 
 Awesome Boxes is all about drawing admonition blocks around text to
 inform or alert your readers about something particular. The specific
@@ -9,7 +10,7 @@ illustration of these blocks.
 The idea of admonition blocks comes from the ones you can easily do with
 [[https://docs.asciidoctor.org/asciidoc/latest/blocks/admonitions/][AsciiDoc]].
 
-For more details, please refer to the [[https://github.com/milouse/latex-awesomebox/blob/master/awesomebox.pdf][awesomebox.pdf]] document.
+For more details, please refer to the [[https://git.umaneti.net/latex-awesomebox/plain/awesomebox.pdf][awesomebox.pdf]] document.
 
 #+html: <a href="https://liberapay.com/milouse/donate"><img alt="Support using Liberapay" src="https://img.shields.io/badge/Liberapay-Support_me-yellow?logo=liberapay"/></a>
 #+html: <a href="https://paypal.me/milouse"><img alt="Support using Paypal" src="https://img.shields.io/badge/Paypal-Support_me-00457C?logo=paypal&labelColor=lightgray"/></a>
@@ -53,6 +54,10 @@ Be aware that icon names changes between FontAwesome and FontAwesome5
 and thus using the compatibility package may break your current
 files. FontAwesome also requires you to use XeLaTeX or LuaTeX: you
 cannot use PDFLaTeX with the compatibility package.
+
+* Contribution
+
+See [[./CONTRIBUTING.org][CONTRIBUTING file]].
 
 * License
 

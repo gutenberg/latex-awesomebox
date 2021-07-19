@@ -1,0 +1,11 @@
+#+title: CONTRIBUTING
+#+options: toc:nil
+#+language: en
+
+The canonical repository is located at
+[[https://git.umaneti.net/latex-awesomebox]]. Before submitting a patch, please
+ensure first you are correctly rebased on the last status of the ~main~ branch
+there.
+
+To ease contribution, a mirror also exists on [[https://github.com/gutenberg/latex-awesomebox][Github]], where merge requests and
+issues are welcomed too.
